@@ -1,0 +1,117 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+    {% if boleta %}
+    <br><br>
+        <div class="row">
+            <div class="col-6 text-right">
+                <h1 class="titulos">
+                    Boleta N° {{ boleta.nro_boleta }} de {{ boleta.cliente.usuario.first_name }} {{ boleta.cliente.usuario.last_name }}
+                </h1>
+            </div>
+            <div class="col-6">
+
+                <table class="mb-3" style="float: right">
+                    <tr>
+                        <td class="td_img_estado_boleta"> 
+                            <img style=" width:100px;" src="{% static 'core/img/vendido.webp' %}" >
+                        </td>
+                       
+                        <td class="td_img_estado_boleta"> 
+                            <img style=" width:100px;" src="{% static 'core/img/despachado.webp' %}" >
+                        </td>
+                        <td class="td_img_estado_boleta"> 
+                            <img style=" width:90px;" src="{% static 'core/img/entregado.png' %}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_fec_estado_boleta" style="color:rgb(131, 226, 150); "> 
+                            Vendido <br> 
+                            {{ boleta.fecha_venta|formatear_fecha }}
+                        </td>
+                        <td class="td_fec_estado_boleta" style="color:rgb(213, 226, 131);"> 
+                            Despachado <br> 
+                            {{ boleta.fecha_despacho|formatear_fecha }}
+                        </td>
+                        <td class="td_fec_estado_boleta" style="color:rgb(226, 139, 131);"> 
+                            Entregado <br> 
+                            {{ boleta.fecha_entrega|formatear_fecha }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <table class="table table-hover">
+            <thead class="tabla_carrito">
+                <tr>
+                    <th>Categoría</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Descuento Subscriptor</th>
+                    <th>Descuento Oferta</th>
+                    <th>Descuento Total</th>
+                    <th>Descuentos</th>
+                    <th>Precio a Pagar</th>
+                </tr>
+            </thead>
+            <tbody class="tabla_carrito">
+                {% for item in detalle_boleta %}
+                    <tr>
+                        <td style="background-color:#cb6e84;">{{ item.bodega.producto.categoria.nombre }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.bodega.producto.nombre }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.precio|formatear_dinero }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.descuento_subscriptor|formatear_porcentaje }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.descuento_oferta|formatear_porcentaje }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.descuento_total|formatear_porcentaje }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.descuentos|formatear_dinero }}</td>
+                        <td style="background-color:#cb6e84;">{{ item.precio_a_pagar|formatear_dinero }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <div class="row">
+            <div class="col-12 text-right">
+                <p>
+                    <span style="font-weight: bold; background-color:#ef89a1; color: black; border: 2px solid #d55674; 
+                    padding: 5px; display: inline-block; border-radius: 10px;">Monto sin IVA:</span> 
+                    <span style="background-color:#cb6e84; color: black; border: 3px solid #ef89a1; 
+                    padding: 5px; display: inline-block; margin-left: 5px; border-radius: 10px;">{{ boleta.monto_sin_iva|formatear_dinero }}</span>
+                </p>
+                <p>
+                    <span style="font-weight: bold; background-color:#ef89a1; color: black; border: 2px solid #d55674; 
+                    padding: 5px; display: inline-block; border-radius: 10px; margin-left: 82px;"> IVA: </span> 
+                    <span style="background-color:#cb6e84; color: black; border: 3px solid #ef89a1; 
+                    padding: 5px; display: inline-block; margin-left: 5px; border-radius: 10px;">{{ boleta.iva|formatear_dinero }}</span>
+                </p>
+                <p>
+                    <span style="font-weight: bold; background-color:#ef89a1; color: black; border: 2px solid #d55674; 
+                    padding: 5px; display: inline-block; border-radius: 10px; margin-left: 7px; ">Total a Pagar:</span>
+                     <span style="background-color:#cb6e84; color: black; border: 3px solid #ef89a1; 
+                     padding: 5px; display: inline-block; margin-left: 5px; border-radius: 10px;">{{ boleta.total_a_pagar|formatear_dinero }}</span>
+                </p>
+            </div>
+        </div>
+        
+        
+
+    {% else %}
+    <div class="container">
+        <h1 class="text-center titulos">No se puede mostrar la boleta.</h1>
+        <div class="row" >
+    {% endif %}
+
+    {% if siguiente_boleta %}
+    <div class="row mt-3">
+        <div class="col-12">
+            <a href="{% url 'boleta' siguiente_boleta.nro_boleta %}" class="btn btn-primary">Ver Siguiente Boleta</a>
+        </div>
+    </div>
+{% endif %}
+
+
+{% endblock content %}

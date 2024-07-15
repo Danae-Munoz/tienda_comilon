@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+  <br>
+  <h1 class="text-center titulos">Completa los datos para crear Tu cuenta de Cliente</h1>
+  <br>
+  <form id="form" method="POST" enctype="multipart/form-data" style="display: none;">
+    {% csrf_token %}
+    <div class="row">
+      <!-- AREA DE DATOS BASICOS: username, nombre, apellidos, correo y contraseñas -->
+      <div class="col-sm-12 col-md-4">
+        {{ form_usuario|as_bootstrap_form:'help_text_visible=False' }}
+      </div>
+      <!-- AREA DE DATOS DE PERFIL: rut, dirección y subscrito (VER COMENTARIO "CHECKBOX SUBSCRITO" en script.js) -->
+      <div class="col-sm-12 col-md-5">
+        {{ form_perfil|as_bootstrap_form }}
+      </div>
+      <!-- AREA DE IMAGEN DE PERFIL -->
+      <div class="col-sm-12 col-md-3 text-center">
+        <div class="row">
+          <!-- AREA DE CUADRO DE IMAGEN: Muestra la Imagen de perfil -->
+          <div class="col-sm-12" style="height: 220px">
+            <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+          </div>
+          &nbsp;
+          <h1>
+            <p style="font-size: 15px;" >
+              <a class="titulos_2" href="{% url 'ingresar' %}">¿Ya tienes una cuenta?</a>
+            </p>
+          </h1>
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+    <!-- AREA DE BOTONES -->
+    <div class="mt-2 mb-3 text-center d-flex justify-content-center">
+      <button class="btn btn-primary boton_buscar_anonimo_2" type="submit">Registrarme</button>
+      <!-- Boton para "Limpiar formulario" (VER COMENTARIO "BOTON LIMPIAR FORMULARIO" en script.js) -->
+      <button class="btn btn-primary boton_buscar_anonimo_2" type="reset" id="limpiar_formulario">Limpiar</button>
+      <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
+      <button class="btn btn-primary boton_buscar_anonimo_2" onclick="event.preventDefault(); document.getElementById('id_imagen').click();">Seleccionar imagen</button>
+      <!-- Botón para "Crear usuario de prueba" (VER COMENTARIO "CREAR USUARIO DE PRUEBA" en registrarme.js) -->
+      <button class="btn btn-primary boton_buscar_anonimo_2" id="crear_usuario_prueba">Crear usuario de prueba</button>
+    </div>
+  </form>
+
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/registrarme.js' %}"></script>
+{% endblock script %}

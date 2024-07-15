@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<!-- Contenido principal de la pagina -->
+<div class="container">
+  <h1 class="text-center titulos">Nosotros</h1>
+  <div class="row" >
+      <!-- Tienda -->
+      <div class="card p-2 col-sm-12 col-md-6 col-lg-4 col-xl-3 borde_nosotros" style="border: 1px solid black;">
+      <div class="card h-100 borde_nosotros" >
+        <br>
+        <img src="{% static 'core/img/logo1.png' %}" class="card-img-top img-fluid" style="max-width: 100%; height: auto;" alt="...">
+        <br><br><br>
+        <div class="card-body">
+          <h2 class="card-title text-center titulos">Solo Leveling</h2>
+          <p class="card-text titulos_2">
+            Es el lugar ideal para los amantes de los videojuegos, con una amplia 
+            selección de títulos emocionantes y mercancía relacionada. Ofrece una 
+            experiencia inmersiva para jugadores de todas las edades. También cuenta 
+            con una variedad de productos coleccionables y temáticos para llevar a casa.
+          </p>
+          <br>
+          <button class="btn btn-primary btn-block boton_buscar_anonimo_2" onclick="window.location.href='mailto:ejemplo@example.com'" >Enviar correo</button>
+        </div>
+      </div>
+      </div>
+      <!-- Gerente general-->
+      <div class="card p-2 col-sm-12 col-md-6 col-lg-4 col-xl-3 borde_nosotros" style="border: 1px solid black;">
+        <div class="card  h-100 borde_nosotros" >
+          <img src="{% static 'core/img/Danae.jpg' %}"  class="card-img-top img-fluid" style="max-width: 100%; height: auto;" alt="...">
+          <br>
+          <div class="card-body">
+          <h2 class="card-title text-center titulos">Gerente general</h2>
+          <p class="card-text titulos_2">
+            Impulsa nuestra tienda, fusionando la pasión por los videojuegos con un servicio excepcional. 
+            Su liderazgo crea el destino perfecto para los aficionados, ofreciendo una amplia selección de 
+            títulos emocionantes y una experiencia inmersiva para todas las edades. 
+          </p>
+          <br><br>
+          <button class="btn btn-primary btn-block boton_buscar_anonimo_2" onclick="window.location.href='mailto:ejemplo@example.com'" >Enviar correo</button>
+          </div>
+        </div>
+      </div>
+      <!-- Director de Ventas -->
+      <div class="card p-2 col-sm-12 col-md-6 col-lg-4 col-xl-3 borde_nosotros" style="border: 1px solid black;">
+        <div class="card h-100 borde_nosotros" >
+          <img src="{% static 'core/img/nico.jpeg' %}"  class="card-img-top img-fluid" style="max-width: 100%; height: auto;" alt="...">
+          <br>
+          <div class="card-body">
+            <h2 class="card-title text-center titulos">Director de Ventas</h2>
+            <p class="card-text titulos_2">
+              Impulsa las ventas y la satisfacción del cliente, liderando un equipo dedicado. 
+              Su enfoque estratégico garantiza una experiencia de compra excepcional con una 
+              amplia variedad de productos emocionantes. Su liderazgo inspirador asegura que 
+              cada visita a nuestra tienda sea única y satisfactoria.
+            </p>
+            <br><br>
+            <button class="btn btn-primary btn-block boton_buscar_anonimo_2" onclick="window.location.href='mailto:ejemplo@example.com'" >Enviar correo</button>
+        </div>
+        </div>
+      </div>
+      <!-- Encargado de Atención al Cliente -->
+      <div class="card p-2 col-sm-12 col-md-6 col-lg-4 col-xl-3 borde_nosotros" style="border: 1px solid black;">
+        <div class="card borde_nosotros" >
+          <img src="{% static 'core/img/Thomas.jpg' %}"  class="card-img-top img-fluid" style="max-width: 100%; height: auto;" alt="...">
+          
+          <div class="card-body">
+            <h2 class="card-title text-center titulos">Encargada de Atención al Cliente</h2>
+            <p class="card-text titulos_2">
+              Lidera un equipo enfocado en brindar un servicio excepcional. Su enfoque centrado en el cliente 
+                        garantiza una experiencia satisfactoria en cada interacción. Con empatía y profesionalismo, 
+                        asegura que cada cliente se sienta valorado, haciendo que cada visita a nuestra 
+                        tienda sea memorable.
+            </p>
+            <br>
+            <button class="btn btn-primary btn-block boton_buscar_anonimo_2" onclick="window.location.href='mailto:ejemplo@example.com'" >Enviar correo</button>
+            <br>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<br><br><br><br>
+    
+{% endblock content %}

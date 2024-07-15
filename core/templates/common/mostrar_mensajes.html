@@ -1,0 +1,16 @@
+<script type="text/javascript">
+$(document).ready(function() {
+
+  var mensajes = `{{ backend_messages }}`;
+  var icon = `{{ backend_message_type }}`;
+
+  if (mensajes != '') {
+    Swal.fire({
+      title: 'Solo Leveling te Informa',
+      html: mensajes,
+      icon: icon,
+      confirmButtonText: 'Aceptar'
+    });
+  }
+});
+</script>

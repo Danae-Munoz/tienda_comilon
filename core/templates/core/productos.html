@@ -1,0 +1,123 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+  <h1 class="text-center titulos" style="margin: 25px;">Mantenedor de productos</h1>
+  <br><br>
+  <form id="form" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <div class="row">
+      <div class="col-sm-12 col-md-5"> 
+          {{ form.categoria|as_bootstrap_field }} 
+          {{ form.nombre|as_bootstrap_field }}
+          {{ form.descripcion|as_bootstrap_field }} 
+      </div> 
+  
+      <div class="col-sm-12 col-md-4"> 
+          {{ form.precio|as_bootstrap_field }} <br> <br>
+          <fieldset class="border border-4 p-2">
+              <legend style="color: #ef89a1; font-weight: bold;">PORCENTAJES DE DESCUENTO</legend>
+              <br><br><br><br>
+              {{ form.descuento_subscriptor|as_bootstrap_field }}  
+              {{ form.descuento_oferta|as_bootstrap_field }}  
+          </fieldset>
+      </div>
+  
+      <div class="col-sm-12 col-md-3">
+          {% if form.imagen.value %}
+              <img id="cuadro-imagen" src="/media/{{ form.imagen.value }}">
+          {% else %}
+              <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+          {% endif %}
+          
+          {{ form.imagen|as_bootstrap_field }}
+          
+          {% if form.imagen.errors %}
+              <div class="invalid-feedback d-block">
+                  {{ form.imagen.errors }}
+              </div>
+          {% endif %}
+      </div>
+  </div>  
+
+    <br><br>
+    <!-- AREA DE BOTONES -->
+    <div class="mt-2 mb-3 text-center">
+
+      <input class="btn btn-primary boton_buscar_anonimo_2" type="submit" value="Guardar">
+
+      <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'productos' 'crear' '0' %}"> Nuevo </a>
+
+      <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
+      <a class="btn btn-primary boton_buscar_anonimo_2" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </a>  
+
+      {% if form.instance.id %}
+        <a class="btn btn-primary" style="background-color: #e63950; color: #ffffff;"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
+      {% endif %}
+
+    </div>
+
+  </form>
+  <br>
+  {% comment %} 
+  
+  {% if productos %} 
+  
+  {% endcomment %}
+
+    <table id="tabla-principal" class="table table-hover">
+        <thead>
+            <tr class="tabla_carrito">
+                <th> ID </th>
+                <th> Categoría </th>
+                <th> Nombre </th>
+                <th> Descripción </th>
+                <th> Precio </th>
+                <th> %Subs </th>
+                <th> %Oferta </th>
+                <th> Imagen </th>
+                <th> Editar </th>
+                <th> Eliminar </th>
+            </tr>
+        </thead>
+        <tbody class="tabla_carrito">
+            {% for producto in productos %}
+                
+            <td style="background-color:#cb6e84;"> {{producto.id}}</td>
+            <td style="background-color:#cb6e84;">{{producto.categoria}}</td>
+            <td style="background-color:#cb6e84;">{{producto.nombre}}</td>
+            <td style="background-color:#cb6e84;"> {{producto.descripcion}}</td>
+            <td style="background-color:#cb6e84;">{{producto.precio|formatear_dinero}}</td>
+            <td style="background-color:#cb6e84;">{{producto.descuento_subscriptor|formatear_porcentaje}}</td>
+            <td style="background-color:#cb6e84;">{{producto.descuento_oferta|formatear_porcentaje}}</td>
+              <td style="background-color:#cb6e84;">
+                  <img src="/media/{{ producto.imagen }}" class="producto-sm" alt="">
+              </td>
+              <td style="background-color:#cb6e84;">
+                  <a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm boton_buscar_anonimo_2"> Editar </a>
+              </td>
+              <td style="background-color:#cb6e84;">
+                  <form method="delete">
+                      <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm"> Eliminar </a>
+                  </form>
+              </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br><br>
+
+  {% comment %}     
+  
+  {% endif %}
+  
+  {% endcomment %} 
+
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/productos.js' %}"></script>
+{% endblock script %}

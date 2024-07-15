@@ -1,0 +1,85 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+<h1 class="text-center titulos" style="margin: 25px;">Mantenedor de Bodega</h1>
+<br><br>
+<form id="form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-5">
+            {{ form.categoria|as_bootstrap_field }}
+            {{ form.producto|as_bootstrap_field }}
+            {{ form.cantidad|as_bootstrap_field }}
+        </div>
+        
+        <div class="col-sm-12 col-md-5">
+            {% if form.producto.value %}
+                <img id="cuadro-imagen" src="{{ form.producto.value.imagen.url }}">
+            {% else %}
+                <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+            {% endif %}
+        </div>
+    </div>
+    <br><br>
+    <div class="text-center mt-2 mb-3">
+        <input class="btn btn-primary boton_buscar_anonimo_2" type="submit" value="Agregar" style="width: 200px;">
+        <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'bodega' %}" style="width: 200px;"> Nuevo </a>
+    </div>
+</form>
+<br><br>
+
+{% if productos %}
+    <div class="table-responsive">
+        <table id="tabla-principal" class="table table-hover">
+            <thead>
+                <tr class="tabla_carrito">
+                    <th class="d-none d-lg-block d-lg-table-cell">ID</th>
+                    <th class="d-none d-lg-block d-lg-table-cell">Categoría</th>
+                    <th>Producto</th>
+                    <th>Estado</th>
+                    <th>Imagen</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr class="tabla_carrito">
+                    <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell">{{ producto.bodega_id }}</td>
+                    <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell">{{ producto.nombre_categoria }}</td>
+                    <td scope="col" style="background-color:#cb6e84;">{{ producto.nombre_producto }}</td>
+                    <td scope="col" style="background-color:#cb6e84;">{{ producto.estado|safe }}</td>
+                    <td style="background-color:#cb6e84;">
+                        <img src="{{ producto.imagen.url }}" class="producto-sm id_producto" alt="">
+                    </td>
+                    <td style="background-color:#cb6e84;">
+                        {% if producto.estado == 'En bodega' %}
+                            <form action="{% url 'eliminar_producto_en_bodega' producto.bodega_id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm" style="background-color: #e63950; color: #ffffff;">Eliminar</button>
+                            </form>
+                        {% else %}
+                            <span class="btn btn-primary btn-sm disabled" style="background-color: #e63950; color: #ffffff;">Eliminar</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+{% endblock content %}
+
+{% block script %}
+    <input type="hidden" id="url_obtener_productos" value="{% url 'obtener_productos' %}">
+    <script src="{% static 'core/js/bodega.js' %}"></script>
+    <script src="{% static 'core/js/productos.js' %}"></script>
+{% endblock script %}
+
+
+
+
+

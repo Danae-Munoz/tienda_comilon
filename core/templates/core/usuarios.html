@@ -1,0 +1,122 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+ <h1 class="text-center titulos" style="margin: 25px;">Mantenedor de usuarios</h1>  
+ 
+ <form id="form" method="POST" enctype="multipart/form-data">
+  
+    {% csrf_token %}
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-5">
+        {{ form_usuario|as_bootstrap_form:'help_text_visible=False' }} 
+      </div>
+      <div class="col-sm-12 col-md-4">
+        {{ form_perfil|as_bootstrap_form }}
+      </div>
+      
+      <div class="col-sm-12 col-md-3">
+        {% if form_perfil.instance.imagen %}
+            <img id="cuadro-imagen" src="{{ form_perfil.instance.imagen.url }}" alt="Imagen del Usuario">
+        {% else %}
+            <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}" alt="Sin Imagen">
+        {% endif %}
+        
+        {% if form_perfil.imagen.errors %}
+            <div class="invalid-feedback d-block">
+                {{ form_perfil.imagen.errors }}
+            </div>
+        {% endif %}
+      </div>    
+    </div>
+
+     <!-- AREA DE BOTONES -->
+      <br><br>
+      <div class="d-flex justify-content-center mt-2 mb-3">
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary boton_buscar_anonimo_2">Guardar</button>
+            
+            <a href="{% url 'usuarios' 'crear' '0' %}" class="btn btn-primary boton_buscar_anonimo_2">Nuevo</a>
+            
+            <button onclick="event.preventDefault(); document.getElementById('id_imagen').click();" class="btn btn-primary boton_buscar_anonimo_2">Seleccionar imagen</button>  
+
+            <button class="btn btn-primary boton_buscar_anonimo_2" id="crear_usuario_prueba">Crear usuario de prueba</button>
+            
+            {% if form_usuario.instance.id %}
+                <a class="btn btn-primary " style="background-color: #e63950; color: #ffffff;" href="{% url 'usuarios' 'eliminar' form_usuario.instance.id %}">Eliminar</a>
+            {% endif %}
+        </div>
+    </div> 
+      
+    </div>
+  </form>
+  <br>
+  <!-- AREA DE TABLA DE USUARIOS -->
+
+  {% comment %} 
+  
+  {% if usuarios %} 
+  
+  {% endcomment %}
+
+    <table id="tabla-principal" class="table table-hover">
+      <thead>
+        <tr class="tabla_carrito">
+          <th> ID </th>
+          <th> Cuenta </th>
+          <th> Tipo usuario </th>
+          <th> Nombre </th>
+          <th> Apellidos </th>
+          <th> Correo </th>
+          <th> RUT </th>
+          <th> Subscrito </th>
+          <th> Imagen </th>
+          <th> Acciones </th>
+        </tr>
+      </thead>
+      <tbody class="tabla_carrito">
+        {% for usuario in usuarios %}
+          
+
+          <td style="background-color:#cb6e84;" >{{usuario.id}} </td> 
+          <td style="background-color:#cb6e84;" >{{usuario.username}} </td> 
+          <td style="background-color:#cb6e84;" >{{usuario.perfil.tipo_usuario}} </td> 
+          <td style="background-color:#cb6e84;" >{{usuario.first_name}} </td> 
+          <td style="background-color:#cb6e84;" >{{usuario.last_name}} </td> 
+          <td style="background-color:#cb6e84;" >{{usuario.email}} </td> 
+          <td style="background-color:#cb6e84;" >{{usuario.perfil.rut}} </td> 
+          
+            <td style="background-color:#cb6e84;"> {% if usuario.perfil.subscrito %} Sí {% else %} No {% endif %} </td>
+            <td style="background-color:#cb6e84;">
+              <img src="/media/{{ usuario.perfil.imagen }}" class="usuario-sm" alt="">
+            </td>
+            <td style="background-color:#cb6e84;">
+              <div class="btn-group">
+                <a href="{% url 'usuarios' 'actualizar' usuario.id %}" class="btn btn-primary btn-sm boton_buscar_anonimo_2"> Editar </a>
+                <a href="{% url 'usuarios' 'eliminar' usuario.id %}" class="btn btn-danger btn-sm btn_eliminar_carrito"> Eliminar </a>
+                <form action="{% url 'cambiar_password' %}" method="post" id="form_{{ usuario.username }}">
+                  {% csrf_token %}
+                  <input type="hidden" id="username" name="username" value="{{ usuario.username }}">
+                  <button class="btn btn-info btn-sm boton_buscar_anonimo_2" id="id_generar_password" onclick="document.getElementById('form_{{ usuario.username }}').submit();"> Contraseña </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+  {% comment %} 
+  
+  {% endif %} 
+  
+  {% endcomment %}
+    
+{% endblock content %}
+    
+{% block script %}
+  <script src="{% static 'core/js/usuarios.js' %}"></script>
+{% endblock script %}
+    

@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <br>
+    <h1 class="titulos text-center"> Carrito de compras </h1>
+    <br>
+    <table id="tabla-principal" class="table table-bordered table-hover table-border tabla_carrito" style="margin: 3px; ">
+        <thead>
+            <tr>
+                <th scope="col" class="d-none d-lg-block d-lg-table-cell"> ID </th>
+                <th scope="col" class="d-none d-lg-block d-lg-table-cell"> Categoría </th>
+                <th scope="col"> Producto </th>
+                <th scope="col"> Precio </th>
+                <th scope="col" class="d-none d-lg-block d-lg-table-cell"> % Descto <br> Subscriptor </th>
+                <th scope="col" class="d-none d-lg-block d-lg-table-cell"> % Descto <br> Oferta </th>
+                <th scope="col" class=" text-end d-none d-lg-block d-lg-table-cell"> % Descto <br> Total </th>
+                <th scope="col" > Descuentos </th>
+                <th scope="col" class=" text-end"> Precio a pagar </th>
+                <th scope="col" > Opciones </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in detalle_carrito %}
+                <tr>
+                    <td scope="col" style="background-color:#cb6e84;" class=" d-none d-lg-block d-lg-table-cell"> {{ item.id }} </td>
+                    <td scope="col" style="background-color:#cb6e84; " class="d-none d-lg-block d-lg-table-cell"> {{ item.producto.categoria.nombre }} </td>
+                    <td scope="col" style="background-color:#cb6e84; font-weight: bold;"> {{ item.producto.nombre }} </td>
+                    <td scope="col" style="background-color:#cb6e84;"> {{ item.precio|formatear_dinero }} </td>
+                    <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"> {{ item.descuento_subscriptor|formatear_porcentaje }} </td>
+                    <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"> {{ item.descuento_oferta|formatear_porcentaje }} </td>
+                    <td scope="col" style="background-color:#cb6e84;" class=" text-end d-none d-lg-block d-lg-table-cell"> {{ item.descuento_total|formatear_porcentaje }} </td>
+                    <td scope="col" style="background-color:#cb6e84;" class="text-end"> {{ item.descuentos|formatear_dinero }} </td>
+                    <td scope="col" style="background-color:#cb6e84; font-weight: bold;" class="text-end"> {{ item.precio_a_pagar|formatear_dinero }} </td>
+                    <td scope="col" style="background-color:#cb6e84;">
+                        <div class="btn-group ">
+                            <a href="{% url 'ficha' item.producto.id %}" class="btn btn-sm btn-primary boton_buscar_anonimo_2 "> Detalle </a> 
+                            <a href="{% url 'eliminar_producto_en_carrito' item.id %}" class="btn btn-sm btn-danger btn_eliminar_carrito "> Eliminar </a> 
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        <tfoot>
+            <tr>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class=" text-end d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#ef89a1;" class="fw-bold"> Precio sin IVA </td>
+                <td scope="col" style="background-color:#ef89a1;" class="fw-bold text-end"> {{ monto_sin_iva|formatear_dinero }} </td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+            </tr>
+            <tr>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class=" text-end d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#ef89a1;" class="fw-bold"> Valor del IVA (19%) </td>
+                <td scope="col" style="background-color:#ef89a1;" class="fw-bold text-end"> {{ iva|formatear_dinero }} </td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+            </tr>
+            <tr>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#cb6e84;" class=" text-end d-none d-lg-block d-lg-table-cell"></td>
+                <td scope="col" style="background-color:#ef89a1;" class="fw-bold"> Total a pagar </td>
+                <td scope="col" style="background-color:#ef89a1;" class="fw-bold text-end"> {{ total_a_pagar|formatear_dinero }} </td>
+                <td scope="col" style="background-color:#cb6e84;"></td>
+            </tr>
+        </tfoot>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a href="{% url 'vaciar_carrito' %}" class="btn btn-danger btn_eliminar_carrito"> Vaciar carrito </a>
+        <a href="{% url 'comprar_carrito' %}" class="btn btn-success boton_buscar_anonimo_2"> Continuar al pago </a>
+    </div>
+    <br><br><br>
+{% endblock content %}

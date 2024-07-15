@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+
+<br>
+
+<div class="container">
+  <h1 class="text-center titulos">Mis datos</h1>
+  <div class="row" >
+
+  
+
+<form id="form" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    
+    <br><br>
+
+    <div class="row">
+
+      <!-- AREA DE DATOS BASICOS: username, nombre, apellidos, correo -->
+      <div class="col-sm-12 col-md-4">
+
+        {{ form_usuario|as_bootstrap_form:'help_text_visible=False' }}
+ 
+      </div>
+
+      <!-- AREA DE DATOS DE PERFIL: rut, dirección y subscrito -->
+      <div class="col-sm-12 col-md-5">
+
+        {{ form_perfil|as_bootstrap_form }}
+
+      </div>
+
+      <!-- AREA DE IMAGEN DE PERFIL -->
+      <div class="col-sm-12 col-md-3">
+        {% if form_perfil.instance.imagen %}
+            <img id="cuadro-imagen" src="{{ form_perfil.instance.imagen.url }}" alt="Imagen del Usuario">
+        {% endif %}
+      </div>  
+    </div>
+    <br><br><br>
+    <!-- AREA DE BOTONES -->
+    <div class="mt-2 mb-3 text-center">
+      <div class="btn-group text-center">
+      <button class="btn btn-primary boton_buscar_anonimo_2" type="submit">Guardar cambios</button>
+      
+      <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap -->
+      <button class="btn btn-primary boton_buscar_anonimo_2" onclick="event.preventDefault(); document.getElementById('id_imagen').click();">Seleccionar imagen</button>  
+
+    </div>
+  </form>
+  <br><br><br><br>
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/editar_perfil.js' %}"></script>
+  <script src="{% static 'core/js/misdatos.js' %}"></script>
+{% endblock script %}

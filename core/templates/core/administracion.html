@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- Contenido de la página-->
+    <h1 class="titulos" style="margin: 30px;">Administrar Tienda</h1>
+    <br>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-auto">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" style="color:rgb(209, 140, 203)" width="30" height="30" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+                <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+              </svg> &nbsp;&nbsp;&nbsp;
+              <a class="btn btn-primary index_btn_comprar" style="padding-right: 25px;" href="{% url 'usuarios' 'crear' '0' %}">
+                Mantenedor de usuarios
+              </a>
+            </p>  
+            <br>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" style="color:rgb(209, 140, 203)" width="30" height="30" fill="currentColor" class="bi bi-inbox" viewBox="0 0 16 16">
+                <path d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374z"/>
+              </svg> &nbsp;&nbsp;&nbsp;
+              <a class="btn btn-primary index_btn_comprar" href="{% url 'productos' 'crear' 'nuevo'%}">
+                Mantenedor de productos
+              </a>
+            </p>
+              <br>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" style="color:rgb(209, 140, 203)" width="30" height="30" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+              </svg> &nbsp;&nbsp;&nbsp;
+              <a class="btn btn-primary index_btn_comprar" style="padding-right: 65px;" href="{% url 'ventas' %}">
+                Historial de ventas
+              </a>
+            </p>
+            <br>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" style="color:rgb(209, 140, 203)" width="30" height="30" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
+              </svg> &nbsp;&nbsp;&nbsp;
+              <a class="btn btn-primary index_btn_comprar" style="padding-right: 30px;" href="{% url 'bodega' %}">
+                Mantenedor de bodega
+              </a>
+            </p>
+            <br>  
+            <p style="font-size: 20px;">
+              {% if user.is_authenticated and user.is_superuser and user.is_active %}
+                <a class="btn btn-primary admin_btn_django"  href="/admin"> Administrador de Django </a>
+              {% endif %}
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-6 justify-content-center">
+            <img src="{% static 'core/img/admin_cafe.webp' %}" alt="" class="col-md-auto text-md-right" style=" max-width: 400px; margin-left: 200px;">
+          </div>
+          
+      </div>
+    </div>
+
+    <br><br><br>
+{% endblock content %}
