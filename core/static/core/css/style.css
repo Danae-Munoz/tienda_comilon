@@ -1,29 +1,18 @@
 th {
   vertical-align: top;
-  background-color: #ef89a1 !important;
+  background-color: #e3d400 !important;
 }
 
 input, textarea, select {
-    background-image: linear-gradient(to right,  #f3ea66, #e3d400);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    border-color: rgba(227, 125, 125, 0.5);
-    color: #FFFFFF;
-}
-
-
-input, textarea, select {
-    background-image: linear-gradient(to right,  #f3ea66, #e3d400);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    border-color: rgba(227, 125, 125, 0.5);
-    color: #FFFFFF;
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.5);
+  color: red;
 }
 
 body {
-  /* Fondo negro */
   background-color: #e3d400;
-  /* Color de texto blanco */
-  color: #FFFFFF;
-  
+  color: red;
 }
 
 .carousel-container {
@@ -40,66 +29,60 @@ body {
   height: auto;
 }
 
-.logo_pequeno{
-    width: 40px;
-    margin-right: 10px;
-  }
+.logo_pequeno {
+  width: 40px;
+  margin-right: 10px;
+}
 
-  
-/*NAVEGADOR ANONIMO*/
 .nav_anonimo {
-  background-image: linear-gradient(to right, rgb(0, 0, 0) );
-  box-shadow: 0 2px 4px rgba(227, 125, 125, 0.5);
-  border-bottom: 1px solid rgba(255, 117, 117, 0.5);
+  background-image: linear-gradient(to right, #e3d400);
+  box-shadow: 0 2px 4px #ff0000;
+  border-bottom: 1px solid #ff0000;
   background-color: #ff0000;
-  color: #ff0000;
-
+  color: #FFFFFF;
 }
 
 .boton_buscar_anonimo {
-    background-image: linear-gradient(to right,  #f3ea66, #e3d400);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    border-color: rgba(227, 125, 125, 0.5);
-    color: #FFFFFF;
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: rgba(227, 125, 125, 0.5);
+  color: #FFFFFF;
 }
 
-.boton_buscar_anonimo_2{
-  background-image: linear-gradient(to right, #ff0000, #f98282);
+.boton_buscar_anonimo_2 {
+  background-image: linear-gradient(to right, #ff0000, #ff0000);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.5);
   color: #000000;
   text-align: center;
-  
 }
 
-.btn_eliminar_carrito{
-  background-image:#e63950;
+.btn_eliminar_carrito {
+  background-color: #ff0000;
   color: #ffffff;
 }
-/*alinear el boton de buscar de anonimo junto al icono*/
+
 button.btn {
   display: flex;
-  align-items: center; 
+  align-items: center;
   margin-right: 5px;
 }
-/*ajustar un margen del boton de buscar de anonimo junto al icono*/
+
 button.btn svg {
-  margin-right: 5px; 
+  margin-right: 5px;
   border-color: rgba(0, 0, 0, 0.5);
 }
 
-/*INDEX*/
-/*fondo de los productos*/
-.index_prod_1{
-  background-color: #2a2c47;
-  background-image: linear-gradient(to right, #1a1c35, #59647e);
+.index_prod_1 {
+  background-color: #e3d400;
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   color: #5d6087;
   max-width: 250px;
-  margin: auto;  
+  margin: auto;
 }
 
 .form-control {
-  max-width: 400px; /* Ancho máximo para los campos de texto */
+  max-width: 400px;
 }
 
 .index_disponible {
@@ -108,63 +91,71 @@ button.btn svg {
 }
 
 .index_precio {
-  color: #000000; 
+  color: #000000;
   font-weight: bold;
   font-size: 20px;
 }
 
 .index_subscrito {
-  color: #e3d400; font-weight: bold;
+  color: #e3d400;
+  font-weight: bold;
   font-size: 20px;
 }
-.text-primary{
+
+.text-primary {
   color: green;
   font-weight: bolder;
 }
+
 .index_oferta {
   color: green;
   font-weight: bolder;
 }
-.letra_blanca{
+
+.letra_blanca {
   color: #fff;
 }
+
 .index_foto_fondo {
   background-color: #e3d400;
   box-shadow: 0 8px 8px rgba(227, 125, 125, 0.5);
   border-bottom: 8px solid rgba(255, 117, 117, 0.5);
   color: #ff0000;
 }
-.index_btn_comprar{
-  background-image: linear-gradient(to right, #ef89a1, #e7c2c2);
+
+.index_btn_comprar {
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
   border-color: rgba(255, 105, 180, 0.5);
-  color: #000000;  
+  color: #000000;
 }
-.admin_btn_django{
-  background-image: linear-gradient(to right, rgb(167, 8, 153), rgb(167, 8, 153));
+
+.admin_btn_django {
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgb(246, 91, 192);
   border-color: rgba(255, 105, 180, 0.5);
-  color: #ffffff; 
-  width:260px; 
-  height: 50px; 
+  color: #ffffff;
+  width: 260px;
+  height: 50px;
   font-size: 17px;
-  
 }
-.titulos{
-  color:#ff0000;
+
+.titulos {
+  color: #ff0000;
   font-family: 'Georgia', serif;
   font-weight: bold;
 }
-.titulos_2{
+
+.titulos_2 {
   background-image: linear-gradient(to right, #e3d400, #e3d400);
-  color:#ff0000;
+  color: #ff0000;
   font-weight: bold;
 }
+
 .navbar-nav .nav-link {
-  color: #ba5f74 !important; 
+  color: #ba5f74 !important;
 }
 
-/*FICHA*/
 .titulo_producto_ficha {
   font-weight: bolder;
   font-size: 40px;
@@ -191,133 +182,120 @@ button.btn svg {
   font-weight: bolder;
 }
 
-/*NOSOTROS*/
-.borde_nosotros{
-  background-color: #000000;
-  border-radius: 15px; 
-  border: 3px solid rgba(255, 105, 180, 0.5);
-  
+.borde_nosotros {
+  background-color: #e3d400;
+  border-radius: 15px;
+  border: 3px solid #e3d400;
 }
-.boton_correo{
-  background-image: linear-gradient(to right, #e7c2c2, #e7c2c2);
+
+.boton_correo {
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
   border-color: rgba(255, 105, 180, 0.5);
   color: #FFFFFF;
-
 }
 
-/*REGISTRO*/
-.registro_color{
-  background-color: #e7c2c2;
-  background-image: linear-gradient(to right, #e7c2c2, #e7c2c2);
-  color:black;
+.registro_color {
+  background-color: #e3d400;
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
+  color: black;
 }
 
-/*INGRESAR*/
-.registro_color{
-  background-color: #e7c2c2;
-  color:black;
-}
-
-/*INGRESAR*/
 .cuadro_login {
   border: 10px solid rgba(255, 105, 180, 0.5);
   padding: 40px;
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  
 }
+
 .boton_ingresar {
-  background-image: linear-gradient(to right, #ef89a1, #e7c2c2);
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
   border-color: rgba(255, 105, 180, 0.5);
-  color: black; 
+  color: black;
   width: 200px;
   margin: auto;
   text-align: center;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  
 }
 
-/*Carrito de compras*/
 th.carrito_color_tabla {
-  background-color: #a7aad2;
+  background-color: #e3d400;
 }
 
-.color_footer{
-  color:rgb(255, 39, 39);
-  
+.color_footer {
+  color: #ff0000;
 }
 
 .color_ropa {
-  background-color: #2a2c47;
-  background-image: linear-gradient(to right, #1a1c35, #59647e);
+  background-color: #e3d400;
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   color: white;
 }
 
-/*Admistrador*/
-.admin_foto{
+.admin_foto {
   max-width: 450px;
-  margin-left: 200px;  
+  margin-left: 200px;
 }
-
-/*Subrayado cuando*/
 
 td.ver-detalle {
-  color: blue; 
-  text-decoration: none; 
-  cursor: pointer; 
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
 }
-td.ver-detalle:hover {
-  text-decoration: underline; 
 
+td.ver-detalle:hover {
+  text-decoration: underline;
 }
 
 .boton_eliminar {
-  background-color: #7073a3;
-  border-color: black; 
+  background-color: #ff0000;
+  border-color: black;
   width: 100px;
   text-align: center;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  margin: auto ;
+  margin: auto;
   text-align: center;
 }
 
-/*Botones de ventas*/
 .botones-container button {
   display: inline-block;
-  margin-right: 5px; /* Espacio entre los botones */
+  margin-right: 5px;
 }
+
 .error-text {
   color: red;
 }
+
 .btn-primary {
-  border:  transparent; /* Borde inicial transparente */
+  border: transparent;
 }
+
 .btn-primary:hover {
-  outline: none; /* Sin borde azul al enfocar */
-  border: transparent; /* Borde transparente al enfocar o pasar el ratón */
-  background-color: #0056b3; /* Cambia el color de fondo si es necesario */
+  outline: none;
+  border: transparent;
+  background-color: #0056b3;
 }
-.boton_ver_detalle{
-  background-image: linear-gradient(to right, #d8b0b8, #d0a5a5);
+
+.boton_ver_detalle {
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
   border-color: rgba(255, 105, 180, 0.5);
   color: #000000;
   text-align: center;
-  
 }
-.boton_ropa{
-  background-image: linear-gradient(to right, #ef89a1, #e7c2c2);
+
+.boton_ropa {
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
   border-color: rgba(255, 105, 180, 0.5);
-  color: rgb(0, 0, 0); 
+  color: rgb(0, 0, 0);
   text-align: center;
 }
-/* Estilos para form-select */
+
 .form-select {
   appearance: none;
   -webkit-appearance: none;
@@ -326,225 +304,128 @@ td.ver-detalle:hover {
   font-size: 16px;
   line-height: 1.5;
   color: #000000;
-  background-color: #f38266 !important;
-  border: 1px solid rgba(255, 105, 105, 0.5);
-  box-shadow: 0 2px 4px rgba(255, 105, 105, 0.5);
-  background-image: linear-gradient(to right, #f38266, #f38266 );
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  user-select: auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: #e3d400 !important;
+  border: 1px solid #6e92d0;
+  border-radius: 5px;
+  transition: all 0.2s;
 }
 
-/* Estilo cuando el selector está enfocado */
+.form-select:hover,
 .form-select:focus {
-  border-color: #f38266;
-  box-shadow: 0 0 5px rgba(255, 105, 105, 0.5);
-}
-
-.letra_rosa{
-  color:#ef89a1;
-}
-.tabla_carrito{
-  background-color:#d55674; 
-  border-color: #d55674;
-}
-
-.center-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-/*boton anterior siguiente de carrito*/
-.page-link {
-  background-color: #ef89a1 !important;
-  color: rgb(0, 0, 0) !important;
-  border-color: rgba(255, 105, 180, 0.5); /* Color de borde blanco */
-  box-shadow: 0 2px 4px rgba(255, 79, 167, 0.807);
-
-}
-.page-link:hover {
-  background-color: #cb6e84 !important;
-  border-color: rgba(255, 105, 180, 0.5); /* Color de borde blanco */
-  box-shadow: 0 2px 4px rgba(255, 79, 167, 0.807);
-  color: rgb(0, 0, 0) !important;
-
-  
-}
-.page-item.active .page-link {
-  background-color: #cb6e84 !important;
-  color: rgba(0, 0, 0, 0.5) !important; /* Color de texto blanco para el número activo */
-  border-color: rgba(255, 105, 180, 0.5); /* Color de borde blanco */
-  box-shadow: 0 2px 4px rgba(255, 79, 167, 0.807);
-
-}
-
-/*boton mostrar y buscar de carrito*/
-.dataTables_length,
-.dataTables_filter {
-    color: #ef89a1 !important; /* Cambia el color del texto */
-}
-.dataTables_length select,
-.dataTables_filter input {
-  background-color:#e7c2c2 !important;
-  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
-  border-color: rgba(255, 105, 180, 0.5);
-  color: #000000;
-}
-.dataTables_length select:focus,
-.dataTables_filter input:focus {
-    outline: none;
-    box-shadow: 0 0 5px #cb6e84;
-}
-
-/* Estilos para formularios */
-#form input[type="text"] {
-  background-color: linear-gradient(to right, #e7c2c2, #e7c2c2);
-  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
-  border-color: rgba(255, 105, 180, 0.5);
-  color: #000000;
-}
-
-
-
-#form input[type="number"] {
-  background-color: linear-gradient(to right, #e7c2c2, #e7c2c2);
-  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
-  border-color: rgba(255, 105, 180, 0.5);
-  color: #000000;
-}
-
-.dataTables_info{
-  color: #ef89a1;
-}
-#form label,
-#form .form-group > label,
-#form .form-group > .helptext,
-#form .form-check-label {
-    color: #ef89a1;
-    font-weight: bold;
-    font-size: 18px; 
-}
-
-.form-text {
-
-  color: #bc6579 !important;
-}
-/* Estilos para form-select */
-.form-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #000000;
-  background-color: #e7c2c2 !important;
-  border: 1px solid rgba(255, 105, 180, 0.5);
-  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.5);
-  border-radius: 4px;
   outline: none;
-  cursor: pointer;
-  user-select: auto;
-}
-
-/* Estilo cuando el selector está enfocado */
-.form-select:focus {
-  border-color: #ff69b4;
-  box-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
-}
-
-p{
-  color: #ef89a1;
-}
-.card-body{
-  background-color: #e3d400;
-  color: #FFFFFF;
-   
-}
-.card .card-img-top {
-  background-color: #000000;
+  box-shadow: 0 0 10px #e3d400;
+  border-color: #f6f5c3;
+  background-image: linear-gradient(to right, white);
+  box-shadow: 0 2px 4px #e3d400;
+  border-bottom: 1px solid #e3d400;
   color: #FFFFFF;
 }
 
-#help_text_id_subscrito {
-  color: #ef89a1; /* Cambia el color del texto a rosado */
-  width: auto; /* Elimina el ancho de 2px */
-}
-.id_subscrito{
-  width: auto; 
-}
-input[type="checkbox"] {
-  width: 25px; /* Ancho del checkbox */
-  height: 25px; /* Altura del checkbox */
-  margin-right: 10px; /* Espacio entre el checkbox y el texto */
-  appearance: none; /* Elimina el estilo predeterminado del checkbox */
-  background-color: #fff; /* Fondo del checkbox */
-  border: 2px solid #ef89a1; /* Borde del checkbox */
-  border-radius: 3px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-  position: relative; /* Necesario para posicionar el tick */
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: red;
+  border-color: red;
 }
 
-input[type="checkbox"]:checked {
-  background-color: #ef89a1; /* Fondo rosado cuando está seleccionado */
-  border-color: #ef89a1; /* Borde rosado cuando está seleccionado */
+div.mt-2.mb-3.text-center.btn-group {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
-input[type="checkbox"]:checked::before {
-  content: ''; /* El tick */
-  color: #fff; /* Color blanco del tick */
-  font-size: 12px; /* Tamaño del tick */
-  position: absolute; /* Posicionamiento absoluto */
-  top: 50%; /* Centra verticalmente */
-  left: 50%; /* Centra horizontalmente */
-  transform: translate(-50%, -50%); /* Ajusta el tick al centro */
-}
-.table-hover .letra-boleta-anulada td {
-  color: #bd273b !important;
+.table-container {
+  padding: 20px;
+  background-color: #e3d400 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
-.cuadro {
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  display: inline-block;
-  margin-bottom: 10px;
+.table-container th,
+.table-container td {
+  padding: 10px;
+  text-align: left;
 }
 
-.cuadro span {
+.form-label {
+  color: #ff0000;
   font-weight: bold;
+  font-size: 17px;
 }
 
 #footer {
-  background-color: #FF0000; /* Fondo rojo */
-  padding: 20px 0;
-  color: #FFFFFF;
+  background: linear-gradient(to right, #e3d400 , #e3d400 );
+  color: red;
 }
+
 #footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#footer p {
-  margin: 5px 0;
-}
-#footer a.color_footer {
-  color: #FFFF00; /* Texto amarillo */
+
+#footer .color_footer {
+  color: #FFFFFF;
   text-decoration: none;
-  font-weight: bold;
 }
-#footer a.color_footer:hover {
+
+#footer .color_footer:hover {
   text-decoration: underline;
 }
-#footer .icon {
-  fill: #FFFF00; /* Iconos amarillos */
-  margin: 0 10px;
-}
+
 #footer .social-icons {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 1.5rem;
 }
 
+#footer .social-icons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: red;
+  text-decoration: none;
+}
+
+#footer .social-icons svg {
+  fill: red;
+  margin-bottom: 0.5rem;
+}
+
+#footer .social-icons p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.swal2-popup {
+  background-color: yellow !important;
+}
+.swal2-title,
+.swal2-html-container {
+  color: black !important;
+}
+.swal2-confirm {
+  background-color: red !important;
+  color: white !important;
+}
+.swal2-success {
+  border-color: red !important;
+}
+.swal2-success .swal2-icon-content {
+  color: red !important;
+}
+.swal2-success .swal2-success-ring {
+  border-color: red !important;
+}
+.swal2-success .swal2-success-fix {
+  background-color: yellow !important;
+}
+.swal2-success .swal2-success-circular-line-left,
+.swal2-success .swal2-success-circular-line-right {
+  background-color: yellow !important;
+}
+.swal2-success .swal2-success-line-tip,
+.swal2-success .swal2-success-line-long {
+  background-color: red !important;
+}
