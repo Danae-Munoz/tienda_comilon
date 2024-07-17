@@ -760,3 +760,7 @@ def generar_informe(request):
 def aceptar_contrato(request):
     messages.success(request,  '¡Enhorabuena! Has aceptado exitosamente los términos y condiciones del contrato de entregas entre el Sistema y el Restaurante.<br><br>Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en contactarnos. <br><br>¡Estamos aquí para ayudarte en todo momento!')
     return redirect(coordinacion)
+
+def ver_producto(request):
+    messages.error(request, f'Esta acción aún no ha sido implementada.')
+    return redirect(favoritos)
