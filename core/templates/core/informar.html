@@ -13,17 +13,13 @@
             <div class="mt-4">
                 <form id="reportForm">
                     <div class="mb-3">
-                        <label for="reportType" class="form-label titulos" >Tipo de Informe</label>
-                        <select class="form-select select" id="reportType" style="width: 100%; max-width: 400px;" required >
+                        <label for="reportType" class="form-label titulos">Tipo de Informe</label>
+                        <select class="form-select select" id="reportType" required style="width: 100%; max-width: 400px;">
                             <option value="">Seleccionar tipo de informe</option>
                             <option value="ventas">Ventas</option>
                             <option value="productos">Productos</option>
                             <option value="clientes">Clientes</option>
                         </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="userEmail" class="form-label titulos">Correo Electrónico</label>
-                        <input type="email" class="form-control buscar_domicilio" id="userEmail"  placeholder="Ej: emilia@gmail.com" style="width: 100%; max-width: 400px;" required >
                     </div>
                     
                     <div class="mb-3">
@@ -36,11 +32,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="additionalNotes" class="form-label titulos">Notas Adicionales</label>
-                        <textarea class="form-control buscar_domicilio" id="additionalNotes" rows="3"  placeholder="Ej: Reclamo de un cliente, su pedido no llegó." style="width: 100%; max-width: 400px;"></textarea>
+                        <textarea class="form-control buscar_domicilio" id="additionalNotes" rows="3" style="width: 100%; max-width: 400px;"></textarea>
                     </div>
                     <div class="btn-group">
-                        <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'generar_informe' %}">Generar Informe</a>
-                        <button class="btn btn-primary btn-block boton_buscar_anonimo_2" style="margin-left: 10px; " onclick="window.location.href='mailto:correodeldestinatario@gmail.com'">Generar desde mi correo</button>
+                        <button type="submit" class="btn btn-primary boton_buscar_anonimo_2">Generar Informe</button>
+                        <button class="btn btn-primary btn-block boton_buscar_anonimo_2" style="margin-left: 10px;" onclick="window.location.href='mailto:jefesepulveda@gmail.com'">Generar desde mi correo</button>
                     </div>
                 </form>
             </div>

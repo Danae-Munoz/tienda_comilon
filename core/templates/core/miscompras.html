@@ -4,9 +4,7 @@
 
 {% block content %}
 <div class="container">
-    <br>
     <h1 class="text-center titulos">Historial de compras</h1>
-    <br>
     <div class="row">
         <table class="table table-hover">
             <thead>
@@ -27,14 +25,14 @@
                 {% else %}
                     <tr>
                 {% endif %}
-                    <td class="buscar_domicilio">{{boleta.nro_boleta}}</td> 
-                    <td class="buscar_domicilio">{{ boleta.fecha_venta|formatear_fecha}} </td>
-                    <td class="buscar_domicilio">{{boleta.fecha_despacho|formatear_fecha}} </td>
-                    <td class="buscar_domicilio">{{boleta.fecha_entrega|formatear_fecha}} </td>
-                    <td class="buscar_domicilio">{{boleta.total_a_pagar|formatear_dinero}} </td>
-                    <td class="buscar_domicilio">{{boleta.estado}} </td>
-                    <td class="buscar_domicilio">
-                        <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary boton_buscar_anonimo" style="color:black">Detalle</a>
+                    <td style="background-color:#cb6e84;">{{boleta.nro_boleta}}</td> 
+                    <td style="background-color:#cb6e84;">{{ boleta.fecha_venta|formatear_fecha}} </td>
+                    <td style="background-color:#cb6e84;">{{boleta.fecha_despacho|formatear_fecha}} </td>
+                    <td style="background-color:#cb6e84;">{{boleta.fecha_entrega|formatear_fecha}} </td>
+                    <td style="background-color:#cb6e84;">{{boleta.total_a_pagar|formatear_dinero}} </td>
+                    <td style="background-color:#cb6e84;">{{boleta.estado}} </td>
+                    <td style="background-color:#cb6e84;">
+                        <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary boton_buscar_anonimo_2">Detalle</a>
                     </td>
                     </tr>
                 {% endfor %}

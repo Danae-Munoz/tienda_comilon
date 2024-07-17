@@ -4,90 +4,40 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center titulos" style="margin: 30px;">Mis Favoritos</h1>
-    <br>
-    <div class="favorites-list ">
-        <div class="favorite-item">
-            <img src="{% static 'core/img/00006.jpg' %}" alt="Producto 3" class="favorite-item-image">
-            <div class="favorite-item-details">
-                <h5 class="card-title titulos">Filete de Salmón a la Parrilla (Quilpué)</h5>
-                <p class="card-text" style="font-weight: bold;">El filete de salmón fresco a la parrilla con puré de papas y espárragos es una 
-                    opción gourmet y saludable. Con sabores delicados y nutritivos, este plato ofrece una combinación perfecta de proteínas y vegetales, 
-                    ideal para quienes buscan una comida ligera y satisfactoria.</p>
-                <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $3500</p>
-                <br>
-                <a href="{% url 'ver_producto' %}" class="btn btn-success boton_carrito"> Ver Producto </a>
-                <a href="{% url 'eliminar_fav' %}" class="btn btn-success boton_buscar_anonimo_2"> Eliminar de Favoritos </a>
-            </div>
-        </div>
-        <div class="favorite-item">
-            <img src="{% static 'core/img/00016.jpg' %}" alt="Producto 3" class="favorite-item-image">
-            <div class="favorite-item-details">
-                <h5 class="card-title titulos">Filete de Salmón a la Parrilla (Quilpué)</h5>
-                <p class="card-text" style="font-weight: bold;">El delicioso cheesecake con salsa de frutos rojos y crujiente de almendra es un 
-                    postre irresistible y sofisticado. Con una textura cremosa y el contraste de sabores entre la dulzura de la salsa y el crujiente 
-                    de la almendra, cada porción es una experiencia dulce y satisfactoria para los amantes de los postres gourmet.</p>
-                <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $4400</p>
-                <br>
-                <a href="{% url 'ver_producto' %}" class="btn btn-success boton_carrito"> Ver Producto </a>
-                <a href="{% url 'eliminar_fav' %}" class="btn btn-success boton_buscar_anonimo_2"> Eliminar de Favoritos </a>
-            </div>
-        </div>
-        <div class="favorite-item">
-            <img src="{% static 'core/img/00010.jpg' %}" alt="Producto 3" class="favorite-item-image">
-            <div class="favorite-item-details">
-                <h5 class="card-title titulos">Tacos de Pollo (Buin)</h5>
-                <p class="card-text" style="font-weight: bold;">Los tres tacos de pollo sazonado con cebolla, cilantro y salsa verde 
-                    en tortillas de maíz son una opción sabrosa y tradicional mexicana. Con ingredientes frescos y el toque picante 
-                    de la salsa verde, cada taco ofrece una explosión de sabores auténticos y texturas crujientes, perfectos para 
-                    disfrutar como una comida rápida y deliciosa en cualquier ocasión.</p>
-                <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $5500</p>
-                <br>
-                <a href="{% url 'ver_producto' %}" class="btn btn-success boton_carrito"> Ver Producto </a>
-                <a href="{% url 'eliminar_fav' %}" class="btn btn-success boton_buscar_anonimo_2"> Eliminar de Favoritos </a>
-            </div>
-        </div>
-        <div class="favorite-item">
-            <img src="{% static 'core/img/00014.jpg' %}" alt="Producto 3" class="favorite-item-image">
-            <div class="favorite-item-details">
-                <h5 class="card-title titulos">Cazuela de Pollo (Osorno)</h5>
-                <p class="card-text" style="font-weight: bold;">La cazuela de pollo es un plato tradicional reconfortante y lleno de sabor. 
-                    Preparada con pollo tierno, papas, zanahorias y otros vegetales, esta cazuela se destaca por su caldo sabroso y aromático, 
-                    ideal para disfrutar en días frescos o como comida reconfortante en cualquier ocasión.</p>
-                <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $11990</p>
-                <br>
-                <a href="{% url 'ver_producto' %}" class="btn btn-success boton_carrito"> Ver Producto </a>
-                <a href="{% url 'eliminar_fav' %}" class="btn btn-success boton_buscar_anonimo_2"> Eliminar de Favoritos </a>
-            </div>
-        </div>
-        <div class="favorite-item">
-            <img src="{% static 'core/img/00002.jpg' %}" alt="Producto 3" class="favorite-item-image">
-            <div class="favorite-item-details">
-                <h5 class="card-title titulos">Papas Fritas (Valparaíso)</h5>
-                <p class="card-text" style="font-weight: bold;">Las papas fritas, crujientes y deliciosas, se destacan por su acompañamiento 
-                    con una salsa especial que realza su sabor. Es un clásico irresistible que complementa cualquier plato con su textura 
-                    perfectamente dorada y su salsa única.</p>
-                <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $3500</p>
-                <br>
-                <a href="{% url 'ver_producto' %}" class="btn btn-success boton_carrito"> Ver Producto </a>
-                <a href="{% url 'eliminar_fav' %}" class="btn btn-success boton_buscar_anonimo_2"> Eliminar de Favoritos </a>
-            </div>
-        </div>
-        <div class="favorite-item">
-            <img src="{% static 'core/img/00018.jpg' %}" alt="Producto 3" class="favorite-item-image">
-            <div class="favorite-item-details">
-                <h5 class="card-title titulos">Ensalada de Pollo al Curry (Providencia)</h5>
-                <p class="card-text" style="font-weight: bold;">La ensalada de lechuga mixta con pollo al curry, manzana, nueces y aderezo de yogur 
-                    combina sabores vibrantes y texturas crujientes en cada cucharada. Es una opción fresca y nutritiva que destaca por su mezcla 
-                    equilibrada de ingredientes saludables y deliciosos, perfecta para disfrutar en cualquier ocasión.</p>
-                <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $7000</p>
-                <br>
-                <a href="{% url 'ver_producto' %}" class="btn btn-success boton_carrito"> Ver Producto </a>
-                <a href="{% url 'eliminar_fav' %}" class="btn btn-success boton_buscar_anonimo_2"> Eliminar de Favoritos </a>
-            </div>
-        </div>
-        <!-- Puedes añadir más productos favoritos aquí -->
+    <h1 class="text-center titulos">Historial de compras</h1>
+    <div class="row">
+        <table class="table table-hover" style="margin: 3px; border-color:#e3d400; ">
+            <thead>
+                <tr class="tabla_carrito">
+                    <th>Nro Boleta</th>
+                    <th>Fecha Venta</th>
+                    <th>Fecha Despacho</th>
+                    <th>Fecha Entrega</th>
+                    <th>Total a Pagar</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody class="tabla_carrito">
+                {% for boleta in historial %}
+                {% if boleta.estado == 'Anulado' %}
+                    <tr class="letra-boleta-anulada"> 
+                {% else %}
+                    <tr>
+                {% endif %}
+                    <td style="background-color:#f3ee66;">{{boleta.nro_boleta}}</td> 
+                    <td style="background-color:#f3ee66;">{{ boleta.fecha_venta|formatear_fecha}} </td>
+                    <td style="background-color:#f3ee66;">{{boleta.fecha_despacho|formatear_fecha}} </td>
+                    <td style="background-color:#f3ee66;">{{boleta.fecha_entrega|formatear_fecha}} </td>
+                    <td style="background-color:#f3ee66;">{{boleta.total_a_pagar|formatear_dinero}} </td>
+                    <td style="background-color:#f3ee66;">{{boleta.estado}} </td>
+                    <td style="background-color:#f3ee66;">
+                        <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary boton_carrito">Detalle</a>
+                    </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
-
 {% endblock content %}

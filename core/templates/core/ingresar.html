@@ -9,28 +9,33 @@
   <div class="row" >
     
   
-    <div class="container-fluid">
-      <div class="row justify-content-center mt-5">
-        <div class="col-6">
-          <form id="form" method="POST" class="border border-danger border-3 p-4">
-            {% csrf_token %}
-    
-            <!-- Botones -->
-            {{ form|as_bootstrap_form }}
-    
-            <div class="text-center mt-4">
-              <button type="submit" class="btn btn-primary boton_buscar_anonimo_2">Ingresar</button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="titulos_2" href="{% url 'registro' %}">Aun no tengo una cuenta</a>
-            </div>
-          </form>
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <form id="form" method="POST" class="border border-3 p-4">
+
+        {% csrf_token %} 
+        
+        <!-- Botones -->
+        {{ form|as_bootstrap_form }}
+        
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary boton_buscar_anonimo_2"> Ingresar </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="titulos_2" href="{% url 'registro' %}">Aun no tengo una cuenta</a>
+          
         </div>
-      </div>
+        
+      </form>
+
+      
     </div>
     
+  </div>
+</div>
 <br><br><br><br><br><br><br><br>
 
 <!-- Combobox de usuarios (QUITAR EN VERSIÓN DE PRODUCCIÓN DEL SOFTWARE) -->
