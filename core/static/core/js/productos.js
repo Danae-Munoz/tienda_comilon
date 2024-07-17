@@ -10,8 +10,8 @@ $(document).ready(function() {
     }
 
     // Asignar placeholders para ayudar a los usuarios
-    $('#id_nombre').attr('placeholder', 'Ej: Diablo 4, Uncharted 2, God of War 2');
-    $('#id_descripcion').attr('placeholder', 'Ej: Diablo IV es un juego de rol de acción de mazmorras desarrollado y publicado por Blizzard Entertainment.');
+    $('#id_nombre').attr('placeholder', 'Ej: Cazuela de pollo, Papas fritas, Sushi');
+    $('#id_descripcion').attr('placeholder', 'Ej: El Ceviche de Mariscos es un plato de comida peruano elaborado y reconocido por su frescura y sabor.');
     $('#id_precio').attr('placeholder', 'Ej: 35000');
     $('#id_descuento_subscriptor').attr('placeholder', 'Ej: 10');
     $('#id_descuento_oferta').attr('placeholder', 'Ej: 5');
