@@ -410,14 +410,6 @@ def miscompras(request):
     
     return render(request, 'core/miscompras.html', context)
 
-def favoritos(request):
-    historial_compras = Boleta.objects.filter(cliente=request.user.perfil).order_by('-fecha_venta')
-    
-    context = {
-        'historial': historial_compras
-    }
-    
-    return render(request, 'core/favoritos.html', context)
 
 def informe(request):
     historial_compras = Boleta.objects.filter(cliente=request.user.perfil).order_by('-fecha_venta')
@@ -709,6 +701,9 @@ def misventas(request):
 def coordinacion(request):
     return render(request, 'core/coordinacion.html')
 
+def favoritos(request):
+    return render(request, 'core/favoritos.html')
+
 @user_passes_test(es_personal_autenticado_y_activo)
 def misproductos(request, accion, id):
     
@@ -752,3 +747,11 @@ def misproductos(request, accion, id):
     }
 
     return render(request, 'core/misproductos.html', context)
+
+def generar_informe(request):
+    messages.success(request, 'El informe ha sido generado con exito')
+    return redirect(informar)
+
+def aceptar_contrato(request):
+    messages.success(request,  '¡Enhorabuena! Has aceptado exitosamente los términos y condiciones del contrato de entregas entre el Sistema y el Restaurante.<br><br>Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en contactarnos. <br><br>¡Estamos aquí para ayudarte en todo momento!')
+    return redirect(coordinacion)

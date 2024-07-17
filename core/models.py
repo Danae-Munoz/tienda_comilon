@@ -228,5 +228,10 @@ class DetalleBoleta(models.Model):
             'accion_eliminar': 'eliminar el Detalle de la Boleta',
             'accion_actualizar': 'actualizar el Detalle de la Boleta'
         }
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Producto, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.user.username} - {self.product.name}"
 

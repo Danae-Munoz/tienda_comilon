@@ -23,7 +23,7 @@
                       <img src="{% static 'core/img/manos.png' %}" class="img-fluid mt-3" style="max-width: 200px;" alt="Manos estrechándose">
                       <p class="text-center mt-4 "><strong>Al aceptar este contrato, ambas partes acuerdan cumplir con los términos establecidos y comprometerse a una colaboración efectiva para asegurar un servicio de entregas eficiente y puntual.</strong></p>
                       <div class="mt-4 btn-group">
-                          <button class="btn btn-primary mr-2 boton_buscar_anonimo" style="margin-left: 10px; color:black" onclick="acceptTerms()" >Acepto los Términos</button>
+                          <a class="btn btn-primary mr-2 boton_buscar_anonimo" style="margin-left: 10px; color:black" href="{% url 'aceptar_contrato' %}" >Acepto los Términos</a>
                           <button class="btn btn-primary btn-block boton_buscar_anonimo" style="margin-left: 10px; color:black" 
                           onclick="window.location.href='mailto:coordinacionelcomilon@gmail.com'">Contactar para Más Información</button>
                       </div>

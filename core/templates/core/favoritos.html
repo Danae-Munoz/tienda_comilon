@@ -4,40 +4,40 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center titulos">Historial de compras</h1>
-    <div class="row">
-        <table class="table table-hover" style="margin: 3px; border-color:#e3d400; ">
-            <thead>
-                <tr class="tabla_carrito">
-                    <th>Nro Boleta</th>
-                    <th>Fecha Venta</th>
-                    <th>Fecha Despacho</th>
-                    <th>Fecha Entrega</th>
-                    <th>Total a Pagar</th>
-                    <th>Estado</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody class="tabla_carrito">
-                {% for boleta in historial %}
-                {% if boleta.estado == 'Anulado' %}
-                    <tr class="letra-boleta-anulada"> 
-                {% else %}
-                    <tr>
-                {% endif %}
-                    <td style="background-color:#f3ee66;">{{boleta.nro_boleta}}</td> 
-                    <td style="background-color:#f3ee66;">{{ boleta.fecha_venta|formatear_fecha}} </td>
-                    <td style="background-color:#f3ee66;">{{boleta.fecha_despacho|formatear_fecha}} </td>
-                    <td style="background-color:#f3ee66;">{{boleta.fecha_entrega|formatear_fecha}} </td>
-                    <td style="background-color:#f3ee66;">{{boleta.total_a_pagar|formatear_dinero}} </td>
-                    <td style="background-color:#f3ee66;">{{boleta.estado}} </td>
-                    <td style="background-color:#f3ee66;">
-                        <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary boton_carrito">Detalle</a>
-                    </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <h1>Mis Favoritos</h1>
+    <div class="favorites-list">
+        <div class="favorite-item">
+            <img src="https://via.placeholder.com/150" alt="Producto 1" class="favorite-item-image">
+            <div class="favorite-item-details">
+                <h2>Producto 1</h2>
+                <p>Descripción del producto 1</p>
+                <p>Precio: $100.00</p>
+                <a href="#" class="btn btn-primary">Ver Producto</a>
+                <button class="btn btn-danger">Eliminar de Favoritos</button>
+            </div>
+        </div>
+        <div class="favorite-item">
+            <img src="https://via.placeholder.com/150" alt="Producto 2" class="favorite-item-image">
+            <div class="favorite-item-details">
+                <h2>Producto 2</h2>
+                <p>Descripción del producto 2</p>
+                <p>Precio: $150.00</p>
+                <a href="#" class="btn btn-primary">Ver Producto</a>
+                <button class="btn btn-danger">Eliminar de Favoritos</button>
+            </div>
+        </div>
+        <div class="favorite-item">
+            <img src="https://via.placeholder.com/150" alt="Producto 3" class="favorite-item-image">
+            <div class="favorite-item-details">
+                <h2>Producto 3</h2>
+                <p>Descripción del producto 3</p>
+                <p>Precio: $200.00</p>
+                <a href="#" class="btn btn-primary">Ver Producto</a>
+                <button class="btn btn-danger">Eliminar de Favoritos</button>
+            </div>
+        </div>
+        <!-- Puedes añadir más productos favoritos aquí -->
     </div>
 </div>
+
 {% endblock content %}
