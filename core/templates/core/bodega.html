@@ -47,18 +47,18 @@
             <tbody>
                 {% for producto in productos %}
                 <tr class="tabla_carrito">
-                    <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell">{{ producto.bodega_id }}</td>
-                    <td scope="col" style="background-color:#cb6e84;" class="d-none d-lg-block d-lg-table-cell">{{ producto.nombre_categoria }}</td>
-                    <td scope="col" style="background-color:#cb6e84;">{{ producto.nombre_producto }}</td>
-                    <td scope="col" style="background-color:#cb6e84;">{{ producto.estado|safe }}</td>
-                    <td style="background-color:#cb6e84;">
+                    <td scope="col" class="buscar_domicilio"class="d-none d-lg-block d-lg-table-cell">{{ producto.bodega_id }}</td>
+                    <td scope="col" class="buscar_domicilio" class="d-none d-lg-block d-lg-table-cell">{{ producto.nombre_categoria }}</td>
+                    <td scope="col" class="buscar_domicilio">{{ producto.nombre_producto }}</td>
+                    <td scope="col" class="buscar_domicilio">{{ producto.estado|safe }}</td>
+                    <td class="buscar_domicilio">
                         <img src="{{ producto.imagen.url }}" class="producto-sm id_producto" alt="">
                     </td>
-                    <td style="background-color:#cb6e84;">
+                    <td class="buscar_domicilio">
                         {% if producto.estado == 'En bodega' %}
                             <form action="{% url 'eliminar_producto_en_bodega' producto.bodega_id %}" method="post">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm" style="background-color: #e63950; color: #ffffff;">Eliminar</button>
+                                <button type="submit" class="btn btn-sm boton_buscar_anonimo_2" >Eliminar</button>
                             </form>
                         {% else %}
                             <span class="btn btn-primary btn-sm disabled" style="background-color: #e63950; color: #ffffff;">Eliminar</span>

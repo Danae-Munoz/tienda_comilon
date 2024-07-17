@@ -476,14 +476,15 @@ div.col-6 > div.cuadro-amarillo {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  background-color: #e3d400 !important;
 }
 
 .favorite-item {
-  border: 1px solid #ddd;
+  border: 2px solid #e3d400; /* Borde amarillo */
   padding: 10px;
   border-radius: 5px;
-  width: calc(33.333% - 20px); /* Three items per row */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px); /* Tres elementos por fila */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra negra */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -494,6 +495,7 @@ div.col-6 > div.cuadro-amarillo {
   height: auto;
   border-radius: 5px;
   margin-bottom: 10px;
+  background-color: #e3d400 !important;
 }
 
 .favorite-item-details h2 {

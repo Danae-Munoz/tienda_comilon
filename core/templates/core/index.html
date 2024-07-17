@@ -67,7 +67,7 @@
   <div class="container-fluid box-shadow">
     <div class="row">
       {% for producto in productos %}
-        <div class="card col-sm-12 col-md-6 col-lg-3 col-xl-2 border-1 m-2 pt-3 pb-4 pt-2 mb-4 index_foto_fondo" style="width: 21.2rem;">
+        <div class="card col-sm-12 col-md-6 col-lg-3 col-xl-2 border-1 m-2 pt-3 pb-4 pt-2 mb-4 index_foto_fondo" style="width: 22.2rem;">
         <a href="{% url 'ficha' producto.id %}" class="link-bloque" style="border-color: #e3d400; text-decoration: none; display: flex; flex-direction: column;">
             
             <img src="/media/{{ producto.imagen }}" class="card-img-top index_prod_1 center-image" alt="Foto de un videojuego"/>

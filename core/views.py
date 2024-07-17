@@ -749,9 +749,19 @@ def misproductos(request, accion, id):
     return render(request, 'core/misproductos.html', context)
 
 def generar_informe(request):
-    messages.success(request, 'El informe ha sido generado con exito')
+    messages.success(request, 'El reporte ha sido generado con exito')
     return redirect(informar)
 
 def aceptar_contrato(request):
     messages.success(request,  '¡Enhorabuena! Has aceptado exitosamente los términos y condiciones del contrato de entregas entre el Sistema y el Restaurante.<br><br>Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en contactarnos. <br><br>¡Estamos aquí para ayudarte en todo momento!')
     return redirect(coordinacion)
+
+def eliminar_fav(request):
+    messages.error(request, f'Esta acción aún no ha sido implementada.')
+    return redirect(favoritos)
+
+def ver_producto(request):
+    messages.error(request, f'Esta acción aún no ha sido implementada.')
+    return redirect(favoritos)
+
+
