@@ -752,3 +752,7 @@ def misproductos(request, accion, id):
     }
 
     return render(request, 'core/misproductos.html', context)
+
+def generar_informe(request):
+    messages.success(request, 'El reporte ha sido generado con exito')
+    return redirect(informar)

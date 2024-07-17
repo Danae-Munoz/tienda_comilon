@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import index, registro, nosotros, productos, administracion, ropa, coordinacion
-from .views import usuarios, bodega, ventas, boleta, ingresar, usuarios, misventas
+from .views import usuarios, bodega, ventas, boleta, ingresar, usuarios, misventas,generar_informe
 from .views import misdatos, miscompras, salir, carrito, ficha,masvendido,informar,misproductos
 from .views import cambiar_estado_boleta, poblar, obtener_productos, eliminar_producto_en_bodega
 from .views import premio, eliminar_producto_en_carrito, agregar_producto_al_carrito, favoritos
@@ -42,5 +42,6 @@ urlpatterns = [
     path('misventas', misventas, name='misventas'),
     path('misproductos/<accion>/<id>', misproductos, name='misproductos'), 
     path('coordinacion', coordinacion, name='coordinacion'),
+    path('generar-informe', generar_informe, name='generar_informe'),
     
 ]
