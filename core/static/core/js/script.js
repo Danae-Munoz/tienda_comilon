@@ -217,3 +217,12 @@ document.getElementById('upload-image').addEventListener('change', function() {
 document.getElementById('id_btnLimpiar').addEventListener('click', function() {
   document.getElementById('miFormulario').reset();
 });
+function searchDishes() {
+    const location = document.getElementById('location-input').value;
+    if(location) {
+        // Aquí iría el código para realizar la búsqueda de platos según la ubicación
+        alert(`Buscando platos cerca de: ${location}`);
+    } else {
+        alert('Por favor, ingrese una ubicación.');
+    }
+}

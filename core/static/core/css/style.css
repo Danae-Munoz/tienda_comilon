@@ -1,6 +1,11 @@
 th {
   vertical-align: top;
-  background-color: #e3d400 !important;
+  background-color:red !important; 
+  border-color: red !important;
+}
+td {
+  vertical-align: top;
+  background-color: #f3ee66 !important;
 }
 
 input, textarea, select {
@@ -15,18 +20,11 @@ body {
   color: red;
 }
 
-.carousel-container {
-  padding: 0;
-  margin: 0;
-}
-
-.carousel-inner {
-  width: 100%;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: auto;
+.buscar_domicilio{
+  background-image: linear-gradient(to right, #f38266, #f38266 );
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: rgba(227, 125, 125, 0.5);
+  color: #FFFFFF;
 }
 
 .logo_pequeno {
@@ -51,6 +49,13 @@ body {
 
 .boton_buscar_anonimo_2 {
   background-image: linear-gradient(to right, #ff0000, #ff0000);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.5);
+  color: #000000;
+  text-align: center;
+}
+.boton_carrito {
+  background-image: linear-gradient(to right, #e3d400, #e3d400);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.5);
   color: #000000;
@@ -222,11 +227,11 @@ button.btn svg {
 }
 
 th.carrito_color_tabla {
-  background-color: #e3d400;
+  background-color: #e35300;
 }
 
 .color_footer {
-  color: #ff0000;
+  color: #ff0000 !important;
 }
 
 .color_ropa {
@@ -305,7 +310,7 @@ td.ver-detalle:hover {
   line-height: 1.5;
   color: #000000;
   background-color: #e3d400 !important;
-  border: 1px solid #6e92d0;
+  border: 1px solid #e3d400;
   border-radius: 5px;
   transition: all 0.2s;
 }
@@ -354,50 +359,11 @@ div.mt-2.mb-3.text-center.btn-group {
   font-size: 17px;
 }
 
-#footer {
-  background: linear-gradient(to right, #e3d400 , #e3d400 );
-  color: red;
-}
 
-#footer .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.color_footer{
+  color:rgb(255, 39, 39);
+  
 }
-
-#footer .color_footer {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-#footer .color_footer:hover {
-  text-decoration: underline;
-}
-
-#footer .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-#footer .social-icons a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: red;
-  text-decoration: none;
-}
-
-#footer .social-icons svg {
-  fill: red;
-  margin-bottom: 0.5rem;
-}
-
-#footer .social-icons p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
 .swal2-popup {
   background-color: yellow !important;
 }
@@ -429,3 +395,37 @@ div.mt-2.mb-3.text-center.btn-group {
 .swal2-success .swal2-success-line-long {
   background-color: red !important;
 }
+
+
+section {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.carousel-inner {
+  width: 100%;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+
+  .container {
+    margin-left: 100px; /* Puedes ajustar el margen según sea necesario */
+}
+.input-group {
+    width: 80%; /* Ajusta el ancho según sea necesario */
+}
+
+.red-heart {
+  color: red !important;
+}
+.page-link{
+  background-color: red !important;
+  border-color:red !important;
+  color: yellow !important;
+}
+ 

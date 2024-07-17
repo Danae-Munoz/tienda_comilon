@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+    <!-- Contenido de la pagina -->
+  <div class="container mt-5">
+    <h1 class="text-center titulos">Los Más Vendidos del Mes</h1>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card index_foto_fondo">
+          <img src="{% static 'core/img/prod1.jpg' %}" class="card-img-top" alt="Producto 1">
+          <div class="card-body">
+            <h5 class="card-title titulos">Cangreburger vegana</h5>
+            <p class="card-text index_oferta" >En oferta 15% de descuento</p>
+            <p class="card-text" style="font-weight: bold;">Una versión sin ingredientes de origen animal de la famosa hamburguesa de cangrejo ficticia de la serie animada "Bob Esponja"</p>
+            <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $8.000</p>
+            <p class="card-text" style="color:blue; font-weight: bold;">Vendido 253 veces</p>
+            <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'productos' 'crear' 'nuevo'%}">Ir a editar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card index_foto_fondo">
+          <img src="{% static 'core/img/prod2.jpg' %}" class="card-img-top" alt="Producto 2">
+          <div class="card-body">
+            <h5 class="card-title titulos">Pizza Artesanal</h5>
+            <p class="card-text" style="font-weight: bold;">Deléitate con nuestra pizza artesanal recién horneada, cubierta con una mezcla perfecta de salsa de tomate casera, queso mozzarella fundido y una variedad de ingredientes frescos y sabrosos.</p>
+            <br>
+            <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $15.000</p>
+            <p class="card-text" style="color:blue; font-weight: bold;">Vendido 100 veces</p>
+            <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'productos' 'crear' 'nuevo'%}">Ir a editar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card index_foto_fondo">
+          <img src="{% static 'core/img/prod3.jpg' %}" class="card-img-top" alt="Producto 3">
+          <div class="card-body">
+            <h5 class="card-title titulos">Completo de la Casa</h5>
+            <p class="card-text index_oferta">En oferta 15% de descuento</p>
+            <p class="card-text" style="font-weight: bold;">Disfruta de nuestro completo chileno, un ícono de la gastronomía callejera que combina suaves y esponjosos panes batidos con sabrosas salchichas.</p>
+            <p class="card-text index_precio"><strong class="index_precio">Precio:</strong> $5.000</p>
+            <p class="card-text" style="color:blue; font-weight: bold;">Vendido 93 veces</p>
+            <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'productos' 'crear' 'nuevo'%}">Ir a editar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

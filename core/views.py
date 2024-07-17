@@ -410,6 +410,32 @@ def miscompras(request):
     
     return render(request, 'core/miscompras.html', context)
 
+def favoritos(request):
+    historial_compras = Boleta.objects.filter(cliente=request.user.perfil).order_by('-fecha_venta')
+    
+    context = {
+        'historial': historial_compras
+    }
+    
+    return render(request, 'core/favoritos.html', context)
+
+def informe(request):
+    historial_compras = Boleta.objects.filter(cliente=request.user.perfil).order_by('-fecha_venta')
+    
+    context = {
+        'historial': historial_compras
+    }
+    
+    return render(request, 'core/informe.html', context)
+def masvendido(request):
+    historial_compras = Boleta.objects.filter(cliente=request.user.perfil).order_by('-fecha_venta')
+    
+    context = {
+        'historial': historial_compras
+    }
+    
+    return render(request, 'core/masvendido.html', context)
+
 
 # ***********************************************************************
 # FUNCIONES Y VISTAS AUXILIARES QUE SE ENTREGAN PROGRAMADAS AL ALUMNO
@@ -673,3 +699,6 @@ def administracion(request):
 
 def ropa(request):
     return render(request, 'core/ropa.html')
+
+def informar(request):
+    return render(request, 'core/informar.html')

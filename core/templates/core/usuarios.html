@@ -45,7 +45,7 @@
             <button class="btn btn-primary boton_buscar_anonimo_2" id="crear_usuario_prueba">Crear usuario de prueba</button>
             
             {% if form_usuario.instance.id %}
-                <a class="btn btn-primary " style="background-color: #e63950; color: #ffffff;" href="{% url 'usuarios' 'eliminar' form_usuario.instance.id %}">Eliminar</a>
+                <a class="btn btn-primary boton_buscar_anonimo_2"  href="{% url 'usuarios' 'eliminar' form_usuario.instance.id %}">Eliminar</a>
             {% endif %}
         </div>
     </div> 
@@ -61,7 +61,7 @@
   
   {% endcomment %}
 
-    <table id="tabla-principal" class="table table-hover">
+    <table id="tabla-principal" class="table table-hover" style="margin: 3px; background-color:red; border-color: red;">
       <thead>
         <tr class="tabla_carrito">
           <th> ID </th>
@@ -80,26 +80,26 @@
         {% for usuario in usuarios %}
           
 
-          <td style="background-color:#cb6e84;" >{{usuario.id}} </td> 
-          <td style="background-color:#cb6e84;" >{{usuario.username}} </td> 
-          <td style="background-color:#cb6e84;" >{{usuario.perfil.tipo_usuario}} </td> 
-          <td style="background-color:#cb6e84;" >{{usuario.first_name}} </td> 
-          <td style="background-color:#cb6e84;" >{{usuario.last_name}} </td> 
-          <td style="background-color:#cb6e84;" >{{usuario.email}} </td> 
-          <td style="background-color:#cb6e84;" >{{usuario.perfil.rut}} </td> 
+          <td class="buscar_domicilio" >{{usuario.id}} </td> 
+          <td class="buscar_domicilio" >{{usuario.username}} </td> 
+          <td class="buscar_domicilio" >{{usuario.perfil.tipo_usuario}} </td> 
+          <td class="buscar_domicilio" >{{usuario.first_name}} </td> 
+          <td class="buscar_domicilio" >{{usuario.last_name}} </td> 
+          <td class="buscar_domicilio" >{{usuario.email}} </td> 
+          <td class="buscar_domicilio" >{{usuario.perfil.rut}} </td> 
           
-            <td style="background-color:#cb6e84;"> {% if usuario.perfil.subscrito %} Sí {% else %} No {% endif %} </td>
-            <td style="background-color:#cb6e84;">
+            <td class="buscar_domicilio"> {% if usuario.perfil.subscrito %} Sí {% else %} No {% endif %} </td>
+            <td class="buscar_domicilio">
               <img src="/media/{{ usuario.perfil.imagen }}" class="usuario-sm" alt="">
             </td>
-            <td style="background-color:#cb6e84;">
+            <td class="buscar_domicilio">
               <div class="btn-group">
-                <a href="{% url 'usuarios' 'actualizar' usuario.id %}" class="btn btn-primary btn-sm boton_buscar_anonimo_2"> Editar </a>
+                <a href="{% url 'usuarios' 'actualizar' usuario.id %}" class="btn btn-primary btn-sm boton_carrito"> Editar </a>
                 <a href="{% url 'usuarios' 'eliminar' usuario.id %}" class="btn btn-danger btn-sm btn_eliminar_carrito"> Eliminar </a>
                 <form action="{% url 'cambiar_password' %}" method="post" id="form_{{ usuario.username }}">
                   {% csrf_token %}
                   <input type="hidden" id="username" name="username" value="{{ usuario.username }}">
-                  <button class="btn btn-info btn-sm boton_buscar_anonimo_2" id="id_generar_password" onclick="document.getElementById('form_{{ usuario.username }}').submit();"> Contraseña </button>
+                  <button class="btn btn-info btn-sm boton_carrito" id="id_generar_password" onclick="document.getElementById('form_{{ usuario.username }}').submit();"> Contraseña </button>
                 </form>
               </div>
             </td>

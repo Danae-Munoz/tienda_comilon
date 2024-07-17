@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+  <!-- Contenido de la pagina -->
+  <div class="container mt-5">
+    <h1 class="text-center titulos">Generación de Reportes </h1>
+    <div class="mt-4">
+        <form id="reportForm">
+            <div class="mb-3">
+                <label for="reportType" class="form-label titulos">Tipo de Informe</label>
+                <select class="form-select select" id="reportType" required>
+                    <option value="">Seleccionar tipo de informe</option>
+                    <option value="ventas">Ventas</option>
+                    <option value="productos">Productos</option>
+                    <option value="clientes">Clientes</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="startDate" class="form-label titulos">Fecha de Inicio</label>
+                <input type="date" class="form-control buscar_domicilio" id="startDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="endDate" class="form-label titulos">Fecha de Fin</label>
+                <input type="date" class="form-control buscar_domicilio" id="endDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="additionalNotes" class="form-label titulos">Notas Adicionales</label>
+                <textarea class="form-control buscar_domicilio" id="additionalNotes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary boton_buscar_anonimo_2">Generar Informe</button>
+        </form>
+    </div>
+  </div>
+
+{% endblock content %}

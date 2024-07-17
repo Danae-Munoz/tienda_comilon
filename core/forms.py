@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Categoria, Producto, Perfil
 
 
+
 class ProductoForm(ModelForm):
     class Meta:
         model = Producto
@@ -99,3 +100,4 @@ class PerfilForm(forms.ModelForm):
             'direccion': forms.Textarea(),
             'imagen': forms.FileInput(),
         }
+

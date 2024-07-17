@@ -17,14 +17,15 @@
       </div> 
   
       <div class="col-sm-12 col-md-4"> 
-          {{ form.precio|as_bootstrap_field }} <br> <br>
-          <fieldset class="border border-4 p-2">
-              <legend style="color: #ef89a1; font-weight: bold;">PORCENTAJES DE DESCUENTO</legend>
-              <br><br><br><br>
-              {{ form.descuento_subscriptor|as_bootstrap_field }}  
-              {{ form.descuento_oferta|as_bootstrap_field }}  
-          </fieldset>
+        {{ form.precio|as_bootstrap_field }} <br> <br>
+        <fieldset style="border: 4px solid red; padding: 2px;">
+            <legend style="color: red; font-weight: bold; border-color:red;">PORCENTAJES DE DESCUENTO</legend>
+            <br><br><br><br>
+            {{ form.descuento_subscriptor|as_bootstrap_field }}  
+            {{ form.descuento_oferta|as_bootstrap_field }}  
+        </fieldset>
       </div>
+    
   
       <div class="col-sm-12 col-md-3">
           {% if form.imagen.value %}
@@ -55,7 +56,7 @@
       <a class="btn btn-primary boton_buscar_anonimo_2" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </a>  
 
       {% if form.instance.id %}
-        <a class="btn btn-primary" style="background-color: #e63950; color: #ffffff;"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
+        <a class="btn btn-primary boton_buscar_anonimo_2"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
       {% endif %}
 
     </div>
@@ -68,7 +69,7 @@
   
   {% endcomment %}
 
-    <table id="tabla-principal" class="table table-hover">
+    <table id="tabla-principal" class="table table-hover" style="margin: 3px; background-color:red; border-color: red;">
         <thead>
             <tr class="tabla_carrito">
                 <th> ID </th>
@@ -86,20 +87,20 @@
         <tbody class="tabla_carrito">
             {% for producto in productos %}
                 
-            <td style="background-color:#cb6e84;"> {{producto.id}}</td>
-            <td style="background-color:#cb6e84;">{{producto.categoria}}</td>
-            <td style="background-color:#cb6e84;">{{producto.nombre}}</td>
-            <td style="background-color:#cb6e84;"> {{producto.descripcion}}</td>
-            <td style="background-color:#cb6e84;">{{producto.precio|formatear_dinero}}</td>
-            <td style="background-color:#cb6e84;">{{producto.descuento_subscriptor|formatear_porcentaje}}</td>
-            <td style="background-color:#cb6e84;">{{producto.descuento_oferta|formatear_porcentaje}}</td>
-              <td style="background-color:#cb6e84;">
+            <td class="buscar_domicilio"> {{producto.id}}</td>
+            <td class="buscar_domicilio">{{producto.categoria}}</td>
+            <td class="buscar_domicilio">{{producto.nombre}}</td>
+            <td class="buscar_domicilio"> {{producto.descripcion}}</td>
+            <td class="buscar_domicilio">{{producto.precio|formatear_dinero}}</td>
+            <td class="buscar_domicilio">{{producto.descuento_subscriptor|formatear_porcentaje}}</td>
+            <td class="buscar_domicilio">{{producto.descuento_oferta|formatear_porcentaje}}</td>
+              <td class="buscar_domicilio">
                   <img src="/media/{{ producto.imagen }}" class="producto-sm" alt="">
               </td>
-              <td style="background-color:#cb6e84;">
-                  <a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm boton_buscar_anonimo_2"> Editar </a>
+              <td class="buscar_domicilio">
+                  <a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm boton_carrito"> Editar </a>
               </td>
-              <td style="background-color:#cb6e84;">
+              <td class="buscar_domicilio">
                   <form method="delete">
                       <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm"> Eliminar </a>
                   </form>
