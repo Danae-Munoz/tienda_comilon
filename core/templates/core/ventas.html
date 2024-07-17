@@ -3,7 +3,8 @@
 {% load custom_filters %}
 
 {% block content %}
-<h1 class="text-center titulos">Historal de ventas</h1>
+<br>
+<h1 class="text-center titulos">Historial de mis ventas</h1>
 
 <table id="tabla-principal" class="table table-hover">
     <thead>
@@ -27,24 +28,24 @@
             {% else %}
                 <tr>
             {% endif %}
-                <td style="background-color:#cb6e84;">{{ boleta.nro_boleta }}</td> 
-                <td style="background-color:#cb6e84;">{{ boleta.nom_cliente }}</td>
-                <td style="background-color:#cb6e84;">{{ boleta.fecha_venta|formatear_fecha }}</td>
-                <td style="background-color:#cb6e84;">{{ boleta.fecha_despacho|formatear_fecha }}</td>
-                <td style="background-color:#cb6e84;">{{ boleta.fecha_entrega|formatear_fecha }}</td>
-                <td style="background-color:#cb6e84;">{{ boleta.subscrito }}</td>
-                <td style="background-color:#cb6e84;">{{ boleta.total_a_pagar|formatear_dinero }}</td>
-                <td style="background-color:#cb6e84;">{{ boleta.estado }}</td>
-                <td style="background-color:#cb6e84;">
-                    <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary boton_buscar_anonimo_2">Detalle</a>
+                <td class="buscar_domicilio">{{ boleta.nro_boleta }}</td> 
+                <td class="buscar_domicilio">{{ boleta.nom_cliente }}</td>
+                <td class="buscar_domicilio">{{ boleta.fecha_venta|formatear_fecha }}</td>
+                <td class="buscar_domicilio">{{ boleta.fecha_despacho|formatear_fecha }}</td>
+                <td class="buscar_domicilio">{{ boleta.fecha_entrega|formatear_fecha }}</td>
+                <td class="buscar_domicilio">{{ boleta.subscrito }}</td>
+                <td class="buscar_domicilio">{{ boleta.total_a_pagar|formatear_dinero }}</td>
+                <td class="buscar_domicilio">{{ boleta.estado }}</td>
+                <td class="buscar_domicilio">
+                    <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary boton_carrito">Detalle</a>
                 </td>
-                <td style="background-color:#cb6e84;">
+                <td class="buscar_domicilio">
                     <span>
                         <div class="btn-group">
-                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Anulado' %}" class="btn btn-sm btn-danger">Anular</a>
-                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Vendido' %}" class="btn btn-sm btn-success boton_buscar_anonimo_2">Vender</a>
-                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Despachado' %}" class="btn btn-sm btn-primary boton_buscar_anonimo_2">Despachar</a>
-                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Entregado' %}" class="btn btn-sm btn-secondary boton_buscar_anonimo_2">Entregar</a>
+                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Anulado' %}" class="btn btn-sm btn-danger boton_buscar_anonimo_2">Anular</a>
+                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Vendido' %}" class="btn btn-sm btn-success vender" >Vender</a>
+                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Despachado' %}" class="btn btn-sm btn-primary despachar">Despachar</a>
+                            <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Entregado' %}" class="btn btn-sm btn-secondary entregar">Entregar</a>
                         </div>
                     </span>
                 </td>

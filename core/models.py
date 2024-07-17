@@ -60,6 +60,7 @@ class Producto(models.Model):
 class Perfil(models.Model):
     USUARIO_CHOICES = [
         ('Cliente', 'Cliente'),
+        ('Proveedor', 'Proveedor'),
         ('Administrador', 'Administrador'),
         ('Superusuario', 'Superusuario'),
     ]

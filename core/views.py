@@ -702,3 +702,53 @@ def ropa(request):
 
 def informar(request):
     return render(request, 'core/informar.html')
+
+def misventas(request):
+    return render(request, 'core/misventas.html')
+
+def coordinacion(request):
+    return render(request, 'core/coordinacion.html')
+
+@user_passes_test(es_personal_autenticado_y_activo)
+def misproductos(request, accion, id):
+    
+    if request.method == 'POST':
+        
+        if accion == 'crear':
+         form= ProductoForm(request.POST, request.FILES) 
+
+        elif accion == 'actualizar':
+         form= ProductoForm(request.POST, request.FILES, instance=Producto.objects.get(id=id)) 
+            
+        if form.is_valid():
+            producto = form.save()
+            ProductoForm(instance=producto)
+            messages.success(request,   f'El producto "{(producto)}" se logró {accion} correctamente')
+            return redirect (productos, 'actualizar', producto.id)
+        else:
+            show_form_errors(request,[form])
+
+    if request.method == 'GET':
+
+        if accion == 'crear':
+          form = ProductoForm()
+
+        elif accion == 'actualizar':
+          form = ProductoForm(instance=Producto.objects.get(id=id))
+
+        elif accion == 'eliminar':
+            eliminado, mensaje = eliminar_registro(Producto, id)
+            messages.success(request, mensaje)
+            if eliminado:
+                return redirect(productos, 'crear', '0')
+            form = ProductoForm(instance=Producto.objects.get(id=id))
+
+        
+        pass
+
+    context = { 
+        'form':form,
+        'productos': Producto.objects.all()
+    }
+
+    return render(request, 'core/misproductos.html', context)

@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- Contenido de la página-->
+    <h1 class="text-center titulos" style="margin: 30px;">Mis Ventas</h1>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-auto">
+              <p>
+            
+                <a class="btn btn-primary boton_buscar_anonimo_2" style="margin-left:15px; color:black; font-size: 24px; padding: 15px 30px; padding-right: 25px; padding-left: 25px;"  href="{% url 'misproductos' 'crear' 'nuevo'%}">
+                  Publicacion de productos
+                </a>
+              </p>  
+              
+                <br>
+                <p>
+                    &nbsp;&nbsp;&nbsp;
+                   <a class="btn btn-primary boton_buscar_anonimo" style="color:black; font-size: 24px; padding: 15px 30px; padding-right: 40px;"  href="{% url 'ventas'%}">
+                    Historial de mis ventas
+                   </a>
+                 </p>
+
+              <br>
+              <p>
+                 &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-primary boton_buscar_anonimo_2" style="color:black; font-size: 24px; padding: 15px 30px; padding-right: 20px; padding-left: 20px;"   href="{% url 'coordinacion'%}">
+                  Coordinacion restaurante
+                </a>
+              </p>
+              <br>  
+            </div>
+            <div class="col-sm-12 col-md-6 justify-content-center">
+              <img src="{% static 'core/img/misventas.webp' %}" alt="" class="col-md-auto text-md-right" style=" max-width: 400px; margin-left: 200px;">
+            </div>
+            
+        </div>
+      </div>
+    <br><br>
+{% endblock content %}

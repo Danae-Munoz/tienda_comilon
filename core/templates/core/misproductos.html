@@ -1,0 +1,124 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+  <h1 class="text-center titulos" style="margin: 25px;">Publicar y Actualizar mis productos</h1>
+  <br><br>
+  <form id="form" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <div class="row">
+      <div class="col-sm-12 col-md-5"> 
+          {{ form.categoria|as_bootstrap_field }} 
+          {{ form.nombre|as_bootstrap_field }}
+          {{ form.descripcion|as_bootstrap_field }} 
+      </div> 
+  
+      <div class="col-sm-12 col-md-4"> 
+        {{ form.precio|as_bootstrap_field }} <br> <br>
+        <fieldset style="border: 4px solid red; padding: 2px;">
+            <legend style="color: red; font-weight: bold; border-color:red;">PORCENTAJES DE DESCUENTO</legend>
+            <br><br><br><br>
+            {{ form.descuento_subscriptor|as_bootstrap_field }}  
+            {{ form.descuento_oferta|as_bootstrap_field }}  
+        </fieldset>
+      </div>
+    
+  
+      <div class="col-sm-12 col-md-3">
+          {% if form.imagen.value %}
+              <img id="cuadro-imagen" src="/media/{{ form.imagen.value }}">
+          {% else %}
+              <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+          {% endif %}
+          
+          {{ form.imagen|as_bootstrap_field }}
+          
+          {% if form.imagen.errors %}
+              <div class="invalid-feedback d-block">
+                  {{ form.imagen.errors }}
+              </div>
+          {% endif %}
+      </div>
+  </div>  
+
+    <br><br>
+    <!-- AREA DE BOTONES -->
+    <div class="mt-2 mb-3 text-center">
+
+      <input class="btn btn-primary boton_buscar_anonimo_2" type="submit" value="Publicar">
+
+      <a class="btn btn-primary boton_buscar_anonimo_2" href="{% url 'productos' 'crear' '0' %}"> Nuevo </a>
+
+      <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
+      <a class="btn btn-primary boton_buscar_anonimo_2" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </a>  
+
+      {% if form.instance.id %}
+        <a class="btn btn-primary boton_buscar_anonimo_2"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
+      {% endif %}
+
+    </div>
+
+  </form>
+  <br>
+  {% comment %} 
+  
+  {% if productos %} 
+  
+  {% endcomment %}
+
+    <table id="tabla-principal" class="table table-hover" style="margin: 3px; background-color:red; border-color: red;">
+        <thead>
+            <tr class="tabla_carrito">
+                <th> ID </th>
+                <th> Categoría </th>
+                <th> Nombre </th>
+                <th> Descripción </th>
+                <th> Precio </th>
+                <th> %Subs </th>
+                <th> %Oferta </th>
+                <th> Imagen </th>
+                <th> Editar </th>
+                <th> Eliminar </th>
+            </tr>
+        </thead>
+        <tbody class="tabla_carrito">
+            {% for producto in productos %}
+                
+            <td class="buscar_domicilio"> {{producto.id}}</td>
+            <td class="buscar_domicilio">{{producto.categoria}}</td>
+            <td class="buscar_domicilio">{{producto.nombre}}</td>
+            <td class="buscar_domicilio"> {{producto.descripcion}}</td>
+            <td class="buscar_domicilio">{{producto.precio|formatear_dinero}}</td>
+            <td class="buscar_domicilio">{{producto.descuento_subscriptor|formatear_porcentaje}}</td>
+            <td class="buscar_domicilio">{{producto.descuento_oferta|formatear_porcentaje}}</td>
+              <td class="buscar_domicilio">
+                  <img src="/media/{{ producto.imagen }}" class="producto-sm" alt="">
+              </td>
+              <td class="buscar_domicilio">
+                  <a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm boton_carrito"> Editar </a>
+              </td>
+              <td class="buscar_domicilio">
+                  <form method="delete">
+                      <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm"> Eliminar </a>
+                  </form>
+              </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br><br>
+
+  {% comment %}     
+  
+  {% endif %}
+  
+  {% endcomment %} 
+
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/productos.js' %}"></script>
+{% endblock script %}

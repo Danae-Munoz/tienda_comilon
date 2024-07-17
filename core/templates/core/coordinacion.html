@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+<br>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="card" style="background-color: red; border-color: #000000;">
+              <div class="card-header text-center">
+                  <h2 style="color: #FFFF00;">Contrato de Entregas entre el Sistema y el Restaurante</h2>
+              </div>
+              <div class="card-body">
+                  <p style="color: #000000;"><strong>Este contrato establece los términos y condiciones para el plan de entregas entre el sistema proveedor y el restaurante. Diseñado para satisfacer la demanda actual y futura, el acuerdo detalla la organización de las entregas basada en un análisis exhaustivo de los datos de ventas y proyecciones de demanda.</strong></p>
+                  <div class="text-center">
+                      <h3 style="color: #FFFF00;">Detalles del Plan de Entregas</h3>
+                      <ul class="list-unstyled">
+                          <li><strong>Revisión periódica de los datos de ventas para ajustar y optimizar las entregas futuras.</strong></li>
+                          <li><strong>Confirmación por parte del restaurante de la cantidad y frecuencia de pedidos conforme a la demanda proyectada.</strong></li>
+                          <li><strong>Establecimiento de un calendario de entregas para garantizar disponibilidad continua de productos.</strong></li>
+                      </ul>
+                      <img src="{% static 'core/img/manos.png' %}" class="img-fluid mt-3" style="max-width: 200px;" alt="Manos estrechándose">
+                      <p class="text-center mt-4 "><strong>Al aceptar este contrato, ambas partes acuerdan cumplir con los términos establecidos y comprometerse a una colaboración efectiva para asegurar un servicio de entregas eficiente y puntual.</strong></p>
+                      <div class="mt-4 btn-group">
+                          <button class="btn btn-primary mr-2 boton_buscar_anonimo" style="margin-left: 10px; color:black" onclick="acceptTerms()" >Acepto los Términos</button>
+                          <button class="btn btn-primary btn-block boton_buscar_anonimo" style="margin-left: 10px; color:black" 
+                          onclick="window.location.href='mailto:coordinacionelcomilon@gmail.com'">Contactar para Más Información</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+    <br>
+{% endblock content %}

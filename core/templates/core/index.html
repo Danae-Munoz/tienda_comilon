@@ -35,22 +35,34 @@
     </section>
   </main>
   <br><br>
-  <!-- Formulario de ubicación -->
-  <div class="container pt-4" style="margin-left: 400px;">
-    <h1 style="color:red; font-size: 20px; font-family: 'Georgia', serif; font-weight: bold;">Ingresa tu ubicación para ver los platos que hay cerca tuyo</h1>
-    <form>
-      <div class="input-group mb-3">
-        <span class="input-group-text buscar_domicilio" style="font-size: 1.25rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-          </svg>
-        </span>
-        <input type="text" class="form-control buscar_domicilio" style="font-size: 1.25rem; padding: 0.75rem;" placeholder="Ingrese su ubicación o punto de referencia" aria-label="Ingrese su ubicación o punto de referencia" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary boton_buscar_anonimo" style="color:black; font-size: 1.25rem;" type="button" id="button-addon2">Buscar Platos</button>
-      </div>
-    </form>
+
+  <!-- FORMULARIO DE BUSQUEDA -->
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center" style="color: red; font-size: 30px; font-family: 'Georgia', serif; font-weight: bold;">Ingresa tu ubicación para ver los platos que hay cerca tuyo</h1>
+            <form method="post" action="{% url 'index' %}" class="d-flex justify-content-center align-items-center" role="search">
+                {% csrf_token %}
+                
+                <span class="input-group-text buscar_domicilio" style="font-size: 1.5rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color: black;" width="45" height="45" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                    </svg>
+                </span>
+                
+                <input class="form-control me-2 buscar_domicilio" style="font-size: 1.2rem; width: 100%; max-width: 1200px; height: 60px;" type="search" placeholder="Ingrese su ubicación o punto de referencia" aria-label="Search" id="buscar" name="buscar">
+                
+                <button class="btn btn-outline-success boton_buscar_anonimo" style="color: black; font-size: 1.5rem;" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color: black;" width="45" height="45" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                        <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
+                        <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
   </div>
-  <br>
+  <br><br>
   {% if productos %}
   <div class="container-fluid box-shadow">
     <div class="row">
