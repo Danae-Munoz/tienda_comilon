@@ -764,3 +764,6 @@ def aceptar_contrato(request):
 def ver_producto(request):
     messages.error(request, f'Esta acción aún no ha sido implementada.')
     return redirect(favoritos)
+def eliminar_fav(request):
+    messages.error(request, f'Esta acción aún no ha sido implementada.')
+    return redirect(favoritos)

@@ -3,7 +3,7 @@ from .views import index, registro, nosotros, productos, administracion, ropa, c
 from .views import usuarios, bodega, ventas, boleta, ingresar, usuarios, misventas,generar_informe
 from .views import misdatos, miscompras, salir, carrito, ficha,masvendido,informar,misproductos
 from .views import cambiar_estado_boleta, poblar, obtener_productos, eliminar_producto_en_bodega
-from .views import premio, eliminar_producto_en_carrito, agregar_producto_al_carrito, favoritos
+from .views import premio, eliminar_producto_en_carrito, eliminar_fav,agregar_producto_al_carrito, favoritos
 from .views import vaciar_carrito, mipassword, ver_producto,cambiar_password, comprar_ahora, comprar_carrito, aceptar_contrato
 
 urlpatterns = [
@@ -45,4 +45,5 @@ urlpatterns = [
     path('generar-informe', generar_informe, name='generar_informe'),
     path('aceptar_contrato', aceptar_contrato, name='aceptar_contrato'),
     path('ver_producto', ver_producto, name='ver_producto'),
+    path('eliminar_fav', eliminar_fav, name='eliminar_fav'),
 ]
